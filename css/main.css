@@ -1,12 +1,4 @@
 @charset "UTF-8";
-header {
-  background-color: white;
-}
-
-footer {
-  background-color: white;
-}
-
 /**
  * main.scss — Point d'entrée principal de la compilation Sass.
  *
@@ -30,5 +22,12 @@ footer {
  * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
+header {
+  background-color: black;
+}
+
+footer {
+  background-color: black;
+}
 
 /*# sourceMappingURL=main.css.map */
