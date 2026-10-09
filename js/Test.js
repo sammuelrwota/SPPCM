@@ -9,6 +9,6 @@ export class Test {
      * Initialise les comportements
      */
     init() {
-        console.log('classe Test');
+        console.log('5w5');
     }
 }
