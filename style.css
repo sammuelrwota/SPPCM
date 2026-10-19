@@ -11,3 +11,25 @@ License:        GNU General Public License v2 or later
 License URI:    LICENSE
 Text Domain:    underscores-child
 */
+
+header {
+  background-color: white;
+}
+
+footer {
+  background-color: white;
+}
+
+h1{
+  font-family: var(--titre1);
+  line-height: var(--titre-interligne);
+}
+
+h2{
+  font-family: var(--titre2);
+  line-height: var(--titre-interligne);
+}
+
+.ombre{
+  filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
+}
