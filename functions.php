@@ -1,33 +1,38 @@
 <?php
 
 /**
- * Charge les styles du thème parent et du thème enfant.
+ * Charge les styles du thème enfant SPPCM.
  */
 function underscores_child_assets() {
 
-    // Style du thème parent
+    // CSS du parent avec un identifiant distinct
     wp_enqueue_style(
-        'underscores-style',
-        get_template_directory_uri() . '/style.css'
+        'underscores-parent-style',
+        get_template_directory_uri() . '/style.css',
+        array(),
+        '1.0.0'
     );
 
-    // style.css du thème enfant
+    // CSS du thème enfant
     wp_enqueue_style(
         'underscores-child-style',
         get_stylesheet_uri(),
-        array( 'underscores-style' )
+        array('underscores-parent-style'),
+        '1.0.0'
     );
 
     // CSS compilé depuis Sass
+    $css_file = get_stylesheet_directory() . '/css/main.css';
+
     wp_enqueue_style(
         'underscores-child-main',
         get_stylesheet_directory_uri() . '/css/main.css',
-        array( 'underscores-child-style' )
-        // Version dynamique recommandée en production :
-        // , filemtime( get_stylesheet_directory() . '/css/main.css' )
+        array('underscores-child-style'),
+        file_exists($css_file) ? filemtime($css_file) : '1.0.0'
     );
 }
-add_action( 'wp_enqueue_scripts', 'underscores_child_assets' );
+add_action('wp_enqueue_scripts', 'underscores_child_assets');
+
 
 
 /**

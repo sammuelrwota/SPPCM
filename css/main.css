@@ -22,6 +22,14 @@
  * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
+header {
+  background-color: blue;
+}
+
+footer {
+  background-color: blue;
+}
+
 /* ------IMPORTATION DES POLICES------------ */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap);
@@ -162,5 +170,7 @@ h2{
 .ombre{
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
+
+/*# sourceMappingURL=main.css.map */
 
 /*# sourceMappingURL=main.css.map */
