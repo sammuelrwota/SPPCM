@@ -23,11 +23,11 @@
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
 header {
-  background-color: black;
+  background-color: blue;
 }
 
 footer {
-  background-color: black;
+  background-color: blue;
 }
 
 /*# sourceMappingURL=main.css.map */
