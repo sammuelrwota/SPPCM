@@ -21,16 +21,48 @@ footer {
 }
 
 h1{
-  font-family: var(--titre1);
+  font-family: var(--titre-police);
+  font-size: var(--titre1);
+  font-weight: var(--titre-black);
   line-height: var(--titre-interligne);
 }
 
-h2{
-  font-family: var(--titre2);
+h3{
+  font-family: var(--titre-police);
+  font-size: var(--titre3);
+  font-weight: var(--titre-gras);
   line-height: var(--titre-interligne);
+}
+
+p{
+  font-family: var(--texte-police);
+  font-size: var(--texte2);
+  font-weight: var(--texte-regulier);
+  line-height: var(--texte2-interligne);
 }
 
 .ombre{
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
 
+/* STYLES DE LA PAGE D'ACCUEIL */
+.page-accueil{
+  margin: var(--marge-mobile);
+}
+
+.titre-principal{
+  text-align: center;
+  color: var(--couleur-texte-fonce);
+}
+
+.image-front{
+  border-radius: 40px 0 40px 0;
+  margin-bottom: 20px;
+}
+
+.infos-syndicat{
+  background: var(--degrade-couleur);
+  color: var(--couleur-texte-pale);
+  padding: 5px 20px;
+  border-radius: 40px 0 40px 0;
+}
