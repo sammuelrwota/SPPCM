@@ -7,31 +7,20 @@
  *
  * @package Underscores
  */
-
-get_header();
+get_header(); // Inclut l'en-tête du thème
 ?>
 
-
-<style>
-    <?php include 'CSS/style.css'; ?>
-</style>
-
-<main id="primary" class="site-main">
-
-    <section class="error-404 not-found">
-        <header class="page-header">
-            <h1 class="page-title"><?php esc_html_e('Page introuvable', 'underscores'); ?></h1>
-        </header><!-- .page-header -->
-
-        <div class="page-content">
-            <p><?php esc_html_e("La page que vous essayez de voir n'a pas été trouvée. Utilisez des termes de recherche différents ou retournez à l'acceuil pour continuer votre navigation.", 'underscores'); ?></p>
-
-            <?php
-            get_search_form();
-            ?>
-    </section><!-- .error-404 -->
-
-</main><!-- #main -->
+<div class="error-404">
+    <h1 class="error-404_titre">Oups ! Page non trouvée</h1>
+    <p class="error-404_message">Désolé, il semble que la page que vous cherchez n'existe pas ou a été déplacée.</p>
+    <p class="error-404_suggestion">Veuillez utiliser des termes de recherche différents ou retourner à l'accueil pour continuer votre navigation.</p>
+    
+    <div class="error-404_options">
+        <a href="<?php echo home_url(); ?>" class="error-404_link error-404_link--home">Retour à l'accueil</a>
+        <?php get_search_form(); // Ajoute un formulaire de recherche ?>
+    </div>
+</div>
 
 <?php
-get_footer();
+get_footer(); // Inclut le pied de page du thème
+?>

@@ -4,7 +4,7 @@ Theme URI:      https://underscores.me/
 Description:    Thème enfant du projet de refonte du site Web du SPPCM.
                 Réalisé dans le cadre du cours 5W5, programme Technique d'intégration multimédia, Collège de Maisonneuve, automne 2026. 
                 Basé sur le thème parent Underscores.
-Author:         [nom de l'équipe]
+Author:         D.O.R.S.
 Template:       underscores
 Version:        0.5.5
 License:        GNU General Public License v2 or later
@@ -17,7 +17,7 @@ header {
 }
 
 footer {
-  background-color: white;
+  background-color: var(--footer-couleur-fond);
 }
 
 h1{
@@ -33,3 +33,4 @@ h2{
 .ombre{
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
+
