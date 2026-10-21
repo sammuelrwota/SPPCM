@@ -68,3 +68,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const formulaire = document.querySelector("#recherche-entete");
+    const boutonRecherche = document.querySelector(".bouton-recherche");
+    const boutonFermer = document.querySelector(".fermer-recherche-entete");
+    const champRecherche = document.querySelector("#champ-recherche-entete");
+
+    if (!formulaire || !boutonRecherche || !boutonFermer || !champRecherche) {
+        return;
+    }
+
+    // OUVRIR LA RECHERCHE
+    boutonRecherche.addEventListener("click", () => {
+
+        if (!formulaire.classList.contains("est-ouverte")) {
+
+            formulaire.classList.add("est-ouverte");
+
+            boutonRecherche.setAttribute("aria-expanded", "true");
+            boutonRecherche.setAttribute("aria-label", "Lancer la recherche");
+
+            champRecherche.focus();
+
+        } else if (champRecherche.value.trim() !== "") {
+
+            // Lancer la recherche WordPress
+            formulaire.requestSubmit();
+
+        } else {
+
+            champRecherche.focus();
+
+        }
+
+    });
+
+    // FERMER LA RECHERCHE
+    boutonFermer.addEventListener("click", () => {
+
+        formulaire.classList.remove("est-ouverte");
+
+        boutonRecherche.setAttribute("aria-expanded", "false");
+        boutonRecherche.setAttribute("aria-label", "Ouvrir la recherche");
+
+        boutonRecherche.focus();
+
+    });
+
+});
+

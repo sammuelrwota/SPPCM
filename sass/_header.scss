@@ -1,52 +1,175 @@
+
 @use './settings/colors' as *;
 @use './settings/variables' as *;
 
 header {
-      // background-color: $color__primary;
-      // background-color: blue; 
+   // background-color: $color__primary;
+   // background-color: blue;
 }
 
-    .site-header {
-         background-color: var(--couleur-de-fond);
+.entete {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   gap: 30px;
+     margin-left: 15px;
+   margin-right: 15px;
+}
+
+.site-header {
+   background-color: var(--couleur-de-fond);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   // padding: 20px var(--marge-desktop);
+   gap: 30px;
+   height: 7vh;
+
+   .entete_logo {
+      flex-shrink: 0;
+
+      .custom-logo {
+         display: block;
+         width: 150px;
+         max-width: 100%;
+         height: auto;
+      }
+   }
+
+   .main-navigation {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+      align-items: center;
+      justify-content: center;
+
+      .menu {
          display: flex;
          align-items: center;
-         justify-content: space-between;
-         padding: 20px var(--marge-desktop);
-         gap: 30px;
-         margin: 10px;
+         gap: 25px;
+         list-style: none;
+         margin: 0;
+         padding: 0;
+      }
 
-      /* LOGO */
-      .site-branding {
-         flex-shrink: 0;
+      ul {
+         display: flex !important;
+         gap: 50px !important;
+      }
 
-         .custom-logo {
+      a {
+         font: var(--texte2);
+         color: var(--couleur-texte-fonce);
+         text-decoration: none;
+         font-weight: bold;
+
+         &:hover {
+            color: var(--couleur-item-fonce);
+         }
+      }
+   }
+
+
+   .recherche-entete {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      margin-left: auto;
+
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0 0.35rem;
+      overflow: hidden;
+      background: transparent;
+      border-radius: 999px;
+
+      transition:
+         width 220ms ease,
+         background 180ms ease,
+         padding 220ms ease;
+
+
+      .bouton-recherche {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex: 0 0 auto;
+         padding: 0;
+         border: 0;
+         background: transparent;
+         cursor: pointer;
+
+         img {
             display: block;
-            width: 150px;
-            max-width: 100%;
+            width: clamp(1.25rem, 2.2vw, 2rem);
             height: auto;
          }
       }
 
-      /* NAVIGATION */
-      .main-navigation {
-         .menu {
-            display: flex;
-            align-items: center;
-            gap: 25px;
 
-            list-style: none;
-            margin: 0;
-            padding: 0;
+      img {
+         flex: 0 0 auto;
+         width: 1.75rem;
+         height: 1.75rem;
+      }
+
+
+      input {
+         flex: 1;
+         min-width: 0;
+         width: 0;
+         padding: 0;
+         border: 0;
+         outline: 0;
+         background: transparent;
+         font: inherit;
+         font-size: 0.95rem;
+         opacity: 0;
+         visibility: hidden;
+      }
+
+      .fermer-recherche-entete {
+         flex: 0 0 auto;
+         padding: 0 0.3rem;
+         border: 0;
+         background: transparent;
+         font: inherit;
+         font-size: 1.25rem;
+         cursor: pointer;
+         opacity: 0;
+         visibility: hidden;
+      }
+
+
+      &.est-ouverte {
+         width: 250px;
+         padding: 0 0.75rem;
+         background: #dedede;
+
+         input {
+            opacity: 1;
+            visibility: visible;
          }
 
-         a {
-            font: var(--texte2);
-            color: var(--couleur-texte-fonce);
-            text-decoration: none;
-
-            &:hover {
-                  color: var(--couleur-item-fonce);
-            }
+         .fermer-recherche-entete {
+            opacity: 1;
+            visibility: visible;
          }
       }
    }
+}
+
+
+.visuellement-masque {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   white-space: nowrap;
+   border: 0;
+}
