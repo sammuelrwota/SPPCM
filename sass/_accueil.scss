@@ -1,0 +1,15 @@
+@use './settings/colors' as *;
+@use './settings/variables' as *;
+
+.site-main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    // background-color: red;
+
+    div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

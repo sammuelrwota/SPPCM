@@ -181,6 +181,14 @@ h2 {
  * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 30px;
+}
+
 .site-header {
   background-color: var(--couleur-de-fond);
   display: flex;
@@ -188,13 +196,12 @@ h2 {
   justify-content: space-between;
   padding: 20px var(--marge-desktop);
   gap: 30px;
-  margin: 10px;
   /* LOGO */
 }
-.site-header .site-branding {
+.site-header .entete_logo {
   flex-shrink: 0;
 }
-.site-header .site-branding .custom-logo {
+.site-header .entete_logo .custom-logo {
   display: block;
   width: 150px;
   max-width: 100%;
@@ -202,6 +209,13 @@ h2 {
 }
 .site-header {
   /* NAVIGATION */
+}
+.site-header .main-navigation {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
 }
 .site-header .main-navigation .menu {
   display: flex;
@@ -211,13 +225,152 @@ h2 {
   margin: 0;
   padding: 0;
 }
+.site-header .main-navigation ul {
+  display: flex !important;
+  gap: 100px !important;
+}
 .site-header .main-navigation a {
   font: var(--texte2);
   color: var(--couleur-texte-fonce);
   text-decoration: none;
+  font-weight: bold;
 }
 .site-header .main-navigation a:hover {
   color: var(--couleur-item-fonce);
+}
+.site-header {
+  /* FORMULAIRE DE RECHERCHE */
+}
+.site-header .recherche-entete {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 0.35rem;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 999px;
+  transition: width 220ms ease, background 180ms ease, padding 220ms ease;
+  /* BOUTON RECHERCHE */
+}
+.site-header .recherche-entete .bouton-recherche {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.site-header .recherche-entete .bouton-recherche img {
+  display: block;
+  width: clamp(1.25rem, 2.2vw, 2rem);
+  height: auto;
+}
+.site-header .recherche-entete {
+  /* IMAGE */
+}
+.site-header .recherche-entete img {
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.site-header .recherche-entete {
+  /* CHAMP DE RECHERCHE */
+}
+.site-header .recherche-entete input {
+  flex: 1;
+  min-width: 0;
+  width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.site-header .recherche-entete {
+  /* BOUTON FERMER */
+}
+.site-header .recherche-entete .fermer-recherche-entete {
+  flex: 0 0 auto;
+  padding: 0 0.3rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+.site-header .recherche-entete {
+  /* RECHERCHE OUVERTE */
+}
+.site-header .recherche-entete.est-ouverte {
+  width: 250px;
+  padding: 0 0.75rem;
+  background: #dedede;
+}
+.site-header .recherche-entete.est-ouverte input {
+  opacity: 1;
+  visibility: visible;
+}
+.site-header .recherche-entete.est-ouverte .fermer-recherche-entete {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ACCESSIBILITÉ */
+.visuellement-masque {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
+.site-main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.site-main div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /**
