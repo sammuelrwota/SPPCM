@@ -1,15 +1,75 @@
 @use './settings/colors' as *;
 @use './settings/variables' as *;
 
+
+.section_general {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height: 500px;
+    padding: 40px 0;
+
+    background-color: #D9D9D9;
+
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0 0 50px;
+        color: black;
+    }
+
+    .blocs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+
+        width: 85%;
+        max-width: 1400px;
+
+        .bloc_gauche {
+            width: 45%;
+
+            p {
+                font-size: 16px;
+                line-height: 1.75;
+                margin-bottom: 20px;
+                font-weight: bold;
+                color: black;
+            }
+        }
+
+        .bloc_droite {
+            width: 45%;
+            height: 300px;
+
+            background-color: #808080;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: 100%;
+                max-width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
 .site-main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    // background-color: red;
-
-    div {
+    .main_contenu {
         display: flex;
         justify-content: center;
         flex-direction: column;
+        align-items: center;
     }
 }

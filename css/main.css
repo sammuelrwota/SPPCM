@@ -187,6 +187,8 @@ h2 {
   justify-content: space-between;
   width: 100%;
   gap: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .site-header {
@@ -194,9 +196,8 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px var(--marge-desktop);
   gap: 30px;
-  /* LOGO */
+  height: 7vh;
 }
 .site-header .entete_logo {
   flex-shrink: 0;
@@ -206,9 +207,6 @@ h2 {
   width: 150px;
   max-width: 100%;
   height: auto;
-}
-.site-header {
-  /* NAVIGATION */
 }
 .site-header .main-navigation {
   display: flex;
@@ -227,7 +225,7 @@ h2 {
 }
 .site-header .main-navigation ul {
   display: flex !important;
-  gap: 100px !important;
+  gap: 50px !important;
 }
 .site-header .main-navigation a {
   font: var(--texte2);
@@ -237,9 +235,6 @@ h2 {
 }
 .site-header .main-navigation a:hover {
   color: var(--couleur-item-fonce);
-}
-.site-header {
-  /* FORMULAIRE DE RECHERCHE */
 }
 .site-header .recherche-entete {
   display: flex;
@@ -254,7 +249,6 @@ h2 {
   background: transparent;
   border-radius: 999px;
   transition: width 220ms ease, background 180ms ease, padding 220ms ease;
-  /* BOUTON RECHERCHE */
 }
 .site-header .recherche-entete .bouton-recherche {
   display: flex;
@@ -271,16 +265,10 @@ h2 {
   width: clamp(1.25rem, 2.2vw, 2rem);
   height: auto;
 }
-.site-header .recherche-entete {
-  /* IMAGE */
-}
 .site-header .recherche-entete img {
   flex: 0 0 auto;
   width: 1.75rem;
   height: 1.75rem;
-}
-.site-header .recherche-entete {
-  /* CHAMP DE RECHERCHE */
 }
 .site-header .recherche-entete input {
   flex: 1;
@@ -295,9 +283,6 @@ h2 {
   opacity: 0;
   visibility: hidden;
 }
-.site-header .recherche-entete {
-  /* BOUTON FERMER */
-}
 .site-header .recherche-entete .fermer-recherche-entete {
   flex: 0 0 auto;
   padding: 0 0.3rem;
@@ -308,9 +293,6 @@ h2 {
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-}
-.site-header .recherche-entete {
-  /* RECHERCHE OUVERTE */
 }
 .site-header .recherche-entete.est-ouverte {
   width: 250px;
@@ -326,7 +308,6 @@ h2 {
   visibility: visible;
 }
 
-/* ACCESSIBILITÉ */
 .visuellement-masque {
   position: absolute;
   width: 1px;
@@ -362,15 +343,65 @@ h2 {
  * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
+.section_general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+  padding: 40px 0;
+  background-color: #D9D9D9;
+}
+.section_general h1 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 50px;
+  color: black;
+}
+.section_general .blocs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  width: 85%;
+  max-width: 1400px;
+}
+.section_general .blocs .bloc_gauche {
+  width: 45%;
+}
+.section_general .blocs .bloc_gauche p {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+.section_general .blocs .bloc_droite {
+  width: 45%;
+  height: 300px;
+  background-color: #808080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section_general .blocs .bloc_droite img {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .site-main {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
-.site-main div {
+.site-main .main_contenu {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 /**

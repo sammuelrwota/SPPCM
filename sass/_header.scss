@@ -13,6 +13,8 @@ header {
    justify-content: space-between;
    width: 100%;
    gap: 30px;
+     margin-left: 15px;
+   margin-right: 15px;
 }
 
 .site-header {
@@ -20,11 +22,10 @@ header {
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 20px var(--marge-desktop);
+   // padding: 20px var(--marge-desktop);
    gap: 30px;
-   // margin: 10px;
+   height: 7vh;
 
-   /* LOGO */
    .entete_logo {
       flex-shrink: 0;
 
@@ -36,7 +37,6 @@ header {
       }
    }
 
-   /* NAVIGATION */
    .main-navigation {
       display: flex;
       flex: 1;
@@ -55,7 +55,7 @@ header {
 
       ul {
          display: flex !important;
-         gap: 100px !important;
+         gap: 50px !important;
       }
 
       a {
@@ -70,7 +70,7 @@ header {
       }
    }
 
-   /* FORMULAIRE DE RECHERCHE */
+
    .recherche-entete {
       display: flex;
       align-items: center;
@@ -90,7 +90,7 @@ header {
          background 180ms ease,
          padding 220ms ease;
 
-      /* BOUTON RECHERCHE */
+
       .bouton-recherche {
          display: flex;
          align-items: center;
@@ -108,14 +108,14 @@ header {
          }
       }
 
-      /* IMAGE */
+
       img {
          flex: 0 0 auto;
          width: 1.75rem;
          height: 1.75rem;
       }
 
-      /* CHAMP DE RECHERCHE */
+
       input {
          flex: 1;
          min-width: 0;
@@ -130,7 +130,6 @@ header {
          visibility: hidden;
       }
 
-      /* BOUTON FERMER */
       .fermer-recherche-entete {
          flex: 0 0 auto;
          padding: 0 0.3rem;
@@ -143,7 +142,7 @@ header {
          visibility: hidden;
       }
 
-      /* RECHERCHE OUVERTE */
+
       &.est-ouverte {
          width: 250px;
          padding: 0 0.75rem;
@@ -162,7 +161,7 @@ header {
    }
 }
 
-/* ACCESSIBILITÉ */
+
 .visuellement-masque {
    position: absolute;
    width: 1px;
