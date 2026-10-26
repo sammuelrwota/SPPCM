@@ -29,6 +29,17 @@
     <header id="masthead" class="site-header">
 
     <div class="entete">
+        
+        <button
+        class="bouton-menu"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="liens-navigation"
+      >
+        <img src="images/Menu.png" alt="" />
+      </button>
+      
         <div class="entete_logo">
 
         <?php if (has_custom_logo()) : ?>
