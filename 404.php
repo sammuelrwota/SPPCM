@@ -11,7 +11,7 @@ get_header(); // Inclut l'en-tête du thème
 ?>
 
 <div class="error-404">
-    <h1 class="error-404_titre">Oups ! Page non trouvée</h1>
+    <h1 class="error-404_titre">Oups ! Page non trouvée...</h1>
     <p class="error-404_message">Désolé, il semble que la page que vous cherchez n'existe pas ou a été déplacée.</p>
     <p class="error-404_suggestion">Veuillez utiliser des termes de recherche différents ou retourner à l'accueil pour continuer votre navigation.</p>
     
