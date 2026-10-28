@@ -158,11 +158,6 @@ h2 {
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
 
-body{
-  background-color: var(--couleur-de-fond);
-}
-
-/**
 .entete {
   display: flex;
   align-items: center;
