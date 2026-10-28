@@ -165,6 +165,10 @@ h2 {
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
 
+body{
+  background-color: var(--couleur-de-fond);
+}
+
 /**
  * main.scss — Point d'entrée principal de la compilation Sass.
  *
