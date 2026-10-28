@@ -12,6 +12,10 @@ License URI:    LICENSE
 Text Domain:    underscores-child
 */
 
+body{
+    background-color: var(--couleur-de-fond);
+}
+
 header {
   background-color: white;
 }
@@ -56,8 +60,9 @@ p{
 }
 
 .image-front{
+  width: 100%;
   border-radius: 40px 0 40px 0;
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 
 .infos-syndicat{
