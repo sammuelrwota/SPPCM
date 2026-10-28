@@ -22,6 +22,8 @@
  * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap");
 /*------------Styles des couleurs utilisées dans la page------------------*/
 :root {
   --couleur-de-fond: rgba(234, 235, 235, 1);
@@ -30,6 +32,7 @@
   --couleur-neutre-foncee:rgba(64, 64, 64, 1);
   --couleur-neutre-moyenne: rgba(128, 128, 128, 1);
   --couleur-neutre-pale: rgba(191, 191, 191, 1);
+  --degrade-couleur: linear-gradient(180deg,rgba(255, 60, 46, 1) 0%, rgba(158, 0, 0, 1) 100%);
 }
 
 /* ------------Styles généraux-------------- */
@@ -50,21 +53,27 @@
 
 /* ---------------Styles des polices de titre------------------- */
 :root {
-  --titre1: 900 24px "Raleway", sans-serif;
-  --titre2: 900 22px "Raleway", sans-serif;
-  --titre3: 700 20px "Raleway", sans-serif;
-  --titre4: 900 16px "Raleway", sans-serif;
-  --titre5: 700 12px "Raleway", sans-serif;
+  --titre-police: "Raleway", sans-serif;
+  --titre-black: 900;
+  --titre-gras: 700;
+  --titre1: 24px;
+  --titre2: 22px;
+  --titre3: 20px;
+  --titre4: 16px;
+  --titre5: 12px;
   --titre-interligne: 30px;
 }
 
 /* ---------------Styles des polices de contenu-------------- */
 :root {
-  --texte1: 200 18px "Geologica" , sans-serif;
-  --texte2: 200 16px "Geologica" , sans-serif;
-  --texte3: 700 16px "Geologica" , sans-serif;
-  --texte4: 200 14px "Geologica" , sans-serif;
-  --texte5: 200 10px "Geologica" , sans-serif;
+  --texte-police: "Geologica" , sans-serif;
+  --texte1: 18px;
+  --texte2: 16px;
+  --texte3: 16px;
+  --texte4: 14px;
+  --texte5: 10px;
+  --texte-gras: 700;
+  --texte-regulier: 200;
   --texte2-interligne: 20px;
   --texte4-interligne: 18px;
 }
@@ -450,21 +459,93 @@ h2 {
   margin: 0;
 }
 
-/* TABLETTE */
-@media (max-width: 1024px) {
+/* LAPTOP */
+@media (minx-width: 1024px) {
   .site-footer {
     padding: 30px var(--marge-tablette);
+    background-color: rgb(255, 53, 3);
   }
 }
-/* MOBILE */
-@media (max-width: 767px) {
+/* TABLETTE */
+@media (max-width: 768px) {
   .site-footer {
     padding: 25px var(--marge-mobile);
+    background-color: rgb(255, 146, 3);
   }
   .site-footer .footer-navigation .footer-menu {
     flex-direction: column;
     gap: 15px;
   }
+}
+/* MOBILE */
+@media (max-width: 500px) {
+  .site-footer {
+    padding: 25px var(--marge-mobile);
+    background-color: rgb(25, 6, 147);
+  }
+  .site-footer .footer-navigation .footer-menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+body {
+  background-color: var(--couleur-de-fond);
+}
+
+header {
+  background-color: white;
+}
+
+footer {
+  background-color: var(--footer-couleur-fond);
+}
+
+h1 {
+  font-family: var(--titre-police);
+  font-size: var(--titre1);
+  font-weight: var(--titre-black);
+  line-height: var(--titre-interligne);
+}
+
+h3 {
+  font-family: var(--titre-police);
+  font-size: var(--titre3);
+  font-weight: var(--titre-gras);
+  line-height: var(--titre-interligne);
+}
+
+p {
+  font-family: var(--texte-police);
+  font-size: var(--texte2);
+  font-weight: var(--texte-regulier);
+  line-height: var(--texte2-interligne);
+}
+
+.ombre {
+  filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
+}
+
+/* STYLES DE LA PAGE D'ACCUEIL */
+.page-accueil {
+  margin: var(--marge-mobile);
+}
+
+.titre-principal {
+  text-align: center;
+  color: var(--couleur-texte-fonce);
+}
+
+.image-front {
+  width: 100%;
+  border-radius: 40px 0 40px 0;
+  margin: 20px auto;
+}
+
+.infos-syndicat {
+  background: var(--degrade-couleur);
+  color: var(--couleur-texte-pale);
+  padding: 5px 20px;
+  border-radius: 40px 0 40px 0;
 }
 
 /*# sourceMappingURL=main.css.map */

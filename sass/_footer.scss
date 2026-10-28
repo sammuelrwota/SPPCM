@@ -60,21 +60,34 @@
     }
 }
 
+/* LAPTOP */
+@media (minx-width: 1024px) {
+  .site-footer {
+    padding: 30px var(--marge-tablette);
+    background-color: rgb(255, 53, 3);
+  }
+}
+
 /* TABLETTE */
-@media (max-width: 1024px) {
-    .site-footer {
-        padding: 30px var(--marge-tablette);
-    }
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 25px var(--marge-mobile);
+    background-color: rgb(255, 146, 3);
+  }
+    .site-footer .footer-navigation .footer-menu {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 /* MOBILE */
-@media (max-width: 767px) {
-    .site-footer {
-        padding: 25px var(--marge-mobile);
-
-        .footer-navigation .footer-menu {
-            flex-direction: column;
-            gap: 15px;
-        }
-    }
+@media (max-width: 500px) {
+  .site-footer {
+    padding: 25px var(--marge-mobile);
+    background-color: rgb(25, 6, 147);
+  }
+  .site-footer .footer-navigation .footer-menu {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
