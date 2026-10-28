@@ -485,14 +485,26 @@ body{
   margin: 0;
 }
 
-/* TABLETTE */
+/* LAPTOP */
 @media (max-width: 1024px) {
   .site-footer {
     padding: 30px var(--marge-tablette);
   }
 }
+
+/* TABLETTE */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 25px var(--marge-mobile);
+  }
+    .site-footer .footer-navigation .footer-menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
 /* MOBILE */
-@media (max-width: 767px) {
+@media (max-width: 500px) {
   .site-footer {
     padding: 25px var(--marge-mobile);
   }
