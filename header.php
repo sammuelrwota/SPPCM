@@ -37,16 +37,19 @@
         <?php endif; ?>
 
         </div>
+
+        <button class="bouton-menu menu-toggle"
+                type="button"
+                aria-controls="menu-principal"
+                aria-expanded="false"
+                aria-label="Ouvrir le menu">
+            <img
+                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/menu.png'); ?>"
+                alt="" />
+        </button>
+
         <nav id="site-navigation" class="main-navigation"
              aria-label="Navigation principale">
-
-            <button class="bouton-menu menu-toggle"
-                    aria-controls="menu-principal"
-                    aria-expanded="false">
-                 <img
-           src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/menu.png'); ?>"
-           alt="" />
-            </button>
 
             <button class="fermer-menu" type="button" aria-label="Fermer le menu">
                 ×
