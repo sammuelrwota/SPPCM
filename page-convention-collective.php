@@ -7,7 +7,6 @@ get_header();
     <h1>
         Convention collective
     </h1>
-    <button></button>
 
     <section class="convention-collective_section">
          <?php

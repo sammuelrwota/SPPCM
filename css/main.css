@@ -676,6 +676,7 @@ p {
   font-size: 1.8rem;
   text-align: center;
   font-weight: bold;
+  color: black;
 }
 .convention_collective .convention-collective_section {
   width: 100%;
@@ -693,9 +694,11 @@ p {
   padding: 0;
   margin: 0;
 }
+.convention_collective .convention-collective_section ul span,
 .convention_collective .convention-collective_section ul li {
-  margin: 0 !important;
+  font-family: var(--titre-police) !important;
 }
+.convention_collective .convention-collective_section ul span a,
 .convention_collective .convention-collective_section ul li a {
   display: block;
   padding: 18px 24px;
@@ -706,9 +709,11 @@ p {
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
+.convention_collective .convention-collective_section ul span a:hover,
 .convention_collective .convention-collective_section ul li a:hover {
   background-color: #eeeeee;
 }
+.convention_collective .convention-collective_section ul span a:focus-visible,
 .convention_collective .convention-collective_section ul li a:focus-visible {
   outline: 2px solid #222;
   outline-offset: 3px;
