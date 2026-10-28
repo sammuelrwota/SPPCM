@@ -29,7 +29,6 @@
     <header id="masthead" class="site-header">
 
     <div class="entete">
-        
         <button
         class="bouton-menu"
         type="button"
@@ -39,7 +38,6 @@
       >
         <img src="images/Menu.png" alt="" />
       </button>
-      
         <div class="entete_logo">
 
         <?php if (has_custom_logo()) : ?>

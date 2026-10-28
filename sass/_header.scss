@@ -22,9 +22,14 @@ header {
    display: flex;
    align-items: center;
    justify-content: space-between;
-   // padding: 20px var(--marge-desktop);
-   gap: 30px;
-   height: 7vh;
+   padding: 1rem;
+
+   .bouton-menu  {
+   display: none; 
+  display: block; 
+  background: none !important;
+  border: none !important;
+  cursor: pointer;}
 
    .entete_logo {
       flex-shrink: 0;
@@ -39,6 +44,7 @@ header {
 
    .main-navigation {
       display: flex;
+
       flex: 1;
       min-width: 0;
       align-items: center;
