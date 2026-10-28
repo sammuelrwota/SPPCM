@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
 
 /*------------Styles des couleurs utilisées dans la page------------------*/
 :root {
@@ -7,6 +9,7 @@
   --couleur-neutre-foncee:rgba(64, 64, 64, 1);
   --couleur-neutre-moyenne: rgba(128, 128, 128, 1);
   --couleur-neutre-pale: rgba(191, 191, 191, 1);
+  --degrade-couleur: linear-gradient(180deg,rgba(255, 60, 46, 1) 0%, rgba(158, 0, 0, 1) 100%);
 }
 
 /* ------------Styles généraux-------------- */
@@ -20,30 +23,36 @@
 }
 
 /*-------------Styles du texte------------------------------------*/
-:root{
+:root {
   --couleur-texte-fonce: rgba(0, 0, 0, 1);
   --couleur-texte-pale: rgba(255, 255, 255, 1);
 }
 
 /* ---------------Styles des polices de titre------------------- */
 :root {
-  --titre1: 900 24px "Raleway", sans-serif;
-  --titre2: 900 22px "Raleway", sans-serif;
-  --titre3: 700 20px "Raleway", sans-serif;
-  --titre4: 900 16px "Raleway", sans-serif;
-  --titre5: 700 12px "Raleway", sans-serif;
+  --titre-police: "Raleway", sans-serif;
+  --titre-black: 900;
+  --titre-gras: 700;
+  --titre1: 24px; 
+  --titre2: 22px;
+  --titre3: 20px;
+  --titre4: 16px;
+  --titre5: 12px;
   --titre-interligne: 30px;
 }
 
 /* ---------------Styles des polices de contenu-------------- */
 :root {
-    --texte1: 200 18px "Geologica" , sans-serif;
-    --texte2: 200 16px "Geologica" , sans-serif;
-    --texte3: 700 16px "Geologica" , sans-serif;
-    --texte4: 200 14px "Geologica" , sans-serif;
-    --texte5: 200 10px "Geologica" , sans-serif;
-    --texte2-interligne: 20px;
-    --texte4-interligne: 18px;
+  --texte-police: "Geologica" , sans-serif;
+  --texte1: 18px;
+  --texte2: 16px;
+  --texte3: 16px;
+  --texte4: 14px;
+  --texte5: 10px;
+  --texte-gras: 700;
+  --texte-regulier: 200;
+  --texte2-interligne: 20px;
+  --texte4-interligne: 18px;
 }
 
 /* --------------Styles du nav---------------- */
