@@ -22,6 +22,8 @@
  * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap");
 /*------------Styles des couleurs utilisées dans la page------------------*/
 :root {
   --couleur-de-fond: rgba(234, 235, 235, 1);
@@ -30,6 +32,7 @@
   --couleur-neutre-foncee:rgba(64, 64, 64, 1);
   --couleur-neutre-moyenne: rgba(128, 128, 128, 1);
   --couleur-neutre-pale: rgba(191, 191, 191, 1);
+  --degrade-couleur: linear-gradient(180deg,rgba(255, 60, 46, 1) 0%, rgba(158, 0, 0, 1) 100%);
 }
 
 /* ------------Styles généraux-------------- */
@@ -50,21 +53,27 @@
 
 /* ---------------Styles des polices de titre------------------- */
 :root {
-  --titre1: 900 24px "Raleway", sans-serif;
-  --titre2: 900 22px "Raleway", sans-serif;
-  --titre3: 700 20px "Raleway", sans-serif;
-  --titre4: 900 16px "Raleway", sans-serif;
-  --titre5: 700 12px "Raleway", sans-serif;
+  --titre-police: "Raleway", sans-serif;
+  --titre-black: 900;
+  --titre-gras: 700;
+  --titre1: 24px;
+  --titre2: 22px;
+  --titre3: 20px;
+  --titre4: 16px;
+  --titre5: 12px;
   --titre-interligne: 30px;
 }
 
 /* ---------------Styles des polices de contenu-------------- */
 :root {
-  --texte1: 200 18px "Geologica" , sans-serif;
-  --texte2: 200 16px "Geologica" , sans-serif;
-  --texte3: 700 16px "Geologica" , sans-serif;
-  --texte4: 200 14px "Geologica" , sans-serif;
-  --texte5: 200 10px "Geologica" , sans-serif;
+  --texte-police: "Geologica" , sans-serif;
+  --texte1: 18px;
+  --texte2: 16px;
+  --texte3: 16px;
+  --texte4: 14px;
+  --texte5: 10px;
+  --texte-gras: 700;
+  --texte-regulier: 200;
   --texte2-interligne: 20px;
   --texte4-interligne: 18px;
 }
@@ -158,6 +167,29 @@ h2 {
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
 
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 .entete {
   display: flex;
   align-items: center;
@@ -176,39 +208,38 @@ h2 {
   padding: 1rem;
 }
 .site-header .bouton-menu {
-  display: none;
-  display: block;
-  background: none !important;
-  border: none !important;
+  background: none;
+  border: none;
   cursor: pointer;
 }
-.site-header .entete_logo {
-  flex-shrink: 0;
+.site-header .bouton-menu img {
+  width: 10vw;
+  max-width: 2.25rem;
 }
-.site-header .entete_logo .custom-logo {
-  display: block;
-  width: 150px;
-  max-width: 100%;
-  height: auto;
+.site-header .entete-logo .custom-logo {
+  width: 40vw;
+  max-width: 12rem;
 }
 .site-header .main-navigation {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
   display: flex;
-  flex: 1;
-  min-width: 0;
-  align-items: center;
-  justify-content: center;
-}
-.site-header .main-navigation .menu {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.site-header .main-navigation ul {
-  display: flex !important;
-  gap: 50px !important;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  max-height: calc(100vh - 1rem);
+  max-height: calc(100dvh - 1rem);
+  padding: 6rem 2rem 1rem;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #222;
+  border-top: none;
+  border-radius: 0 0 2.5rem 2.5rem;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.75rem);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
 }
 .site-header .main-navigation a {
   font: var(--texte2);
@@ -218,6 +249,46 @@ h2 {
 }
 .site-header .main-navigation a:hover {
   color: var(--couleur-item-fonce);
+}
+.site-header .main-navigation a::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0;
+  height: 0;
+  border-top: 2.55rem solid #111;
+  border-right: 0.4rem solid transparent;
+  border-left: 0.4rem solid transparent;
+}
+.site-header .main-navigation h3 {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.25rem 0;
+  color: #111;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+  font-weight: 800;
+  text-decoration: none;
+}
+.site-header .main-navigation.ouvert {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.site-header .fermer-menu,
+.site-header .fermer-recherche {
+  border: 0;
+  background: transparent;
+  color: #222;
+  font: inherit;
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+}
+.site-header .fermer-menu {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
 }
 .site-header .recherche-entete {
   display: flex;
@@ -303,6 +374,29 @@ h2 {
   border: 0;
 }
 
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 .section_general {
   display: flex;
   flex-direction: column;
@@ -364,6 +458,29 @@ h2 {
   align-items: center;
 }
 
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 .site-footer {
   background-color: var(--footer-couleur-fond);
   color: var(--footer-couleur-contenu);
@@ -509,6 +626,167 @@ h2 {
   .site-footer .footer-icones a:hover {
     transform: none;
   }
+}
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
+body {
+  background-color: var(--couleur-de-fond);
+}
+
+header {
+  background-color: white;
+}
+
+footer {
+  background-color: var(--footer-couleur-fond);
+}
+
+h1 {
+  font-family: var(--titre-police);
+  font-size: var(--titre1);
+  font-weight: var(--titre-black);
+  line-height: var(--titre-interligne);
+}
+
+h3 {
+  font-family: var(--titre-police);
+  font-size: var(--titre3);
+  font-weight: var(--titre-gras);
+  line-height: var(--titre-interligne);
+}
+
+p {
+  font-family: var(--texte-police);
+  font-size: var(--texte2);
+  font-weight: var(--texte-regulier);
+  line-height: var(--texte2-interligne);
+}
+
+.ombre {
+  filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
+}
+
+/* STYLES DE LA PAGE D'ACCUEIL */
+.page-accueil {
+  margin: var(--marge-mobile);
+}
+
+.titre-principal {
+  text-align: center;
+  color: var(--couleur-texte-fonce);
+}
+
+.image-front {
+  width: 100%;
+  border-radius: 40px 0 40px 0;
+  margin: 20px auto;
+}
+
+.infos-syndicat {
+  background: var(--degrade-couleur);
+  color: var(--couleur-texte-pale);
+  padding: 5px 20px;
+  border-radius: 40px 0 40px 0;
+}
+
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
+.convention_collective {
+  width: 100%;
+  min-height: 30vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.convention_collective h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+.convention_collective .convention-collective_section {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.convention_collective .convention-collective_section ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.convention_collective .convention-collective_section ul span,
+.convention_collective .convention-collective_section ul li {
+  font-family: var(--titre-police) !important;
+}
+.convention_collective .convention-collective_section ul span a,
+.convention_collective .convention-collective_section ul li a {
+  display: block;
+  padding: 18px 24px;
+  background-color: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  color: #222;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.convention_collective .convention-collective_section ul span a:hover,
+.convention_collective .convention-collective_section ul li a:hover {
+  background-color: #eeeeee;
+}
+.convention_collective .convention-collective_section ul span a:focus-visible,
+.convention_collective .convention-collective_section ul li a:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 3px;
 }
 
 /*# sourceMappingURL=main.csst.map */

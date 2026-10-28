@@ -29,18 +29,8 @@
     <header id="masthead" class="site-header">
 
     <div class="entete">
-        <button
-        class="bouton-menu"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="liens-navigation"
-      >
-        <img
-           src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/menu.png'); ?>"
-           alt="" />
-      </button>
-        <div class="entete_logo">
+
+        <div class="entete-logo">
 
         <?php if (has_custom_logo()) : ?>
         <?php the_custom_logo(); ?>
@@ -50,16 +40,22 @@
         <nav id="site-navigation" class="main-navigation"
              aria-label="Navigation principale">
 
-            <button class="menu-toggle"
-                    aria-controls="primary-menu"
+            <button class="bouton-menu menu-toggle"
+                    aria-controls="menu-principal"
                     aria-expanded="false">
-                Menu
+                 <img
+           src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/menu.png'); ?>"
+           alt="" />
+            </button>
+
+            <button class="fermer-menu" type="button" aria-label="Fermer le menu">
+                ×
             </button>
 
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'menu-1',
-                'menu_id'        => 'primary-menu',
+                'menu_id'        => 'menu-principal',
                 'container'      => false,
             ));
             ?>
