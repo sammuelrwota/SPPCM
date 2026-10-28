@@ -12,9 +12,6 @@ License URI:    LICENSE
 Text Domain:    underscores-child
 */
 
-header {
-  background-color: white;
-}
 
 footer {
   background-color: var(--footer-couleur-fond);
@@ -25,6 +22,7 @@ h1{
   font-size: var(--titre1);
   font-weight: var(--titre-black);
   line-height: var(--titre-interligne);
+  color: mediumslateblue;
 }
 
 h3{
@@ -66,3 +64,4 @@ p{
   padding: 5px 20px;
   border-radius: 40px 0 40px 0;
 }
+
