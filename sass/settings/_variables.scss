@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap');
+}
 
 /*------------Styles des couleurs utilisées dans la page------------------*/
 :root {
@@ -7,6 +14,7 @@
   --couleur-neutre-foncee:rgba(64, 64, 64, 1);
   --couleur-neutre-moyenne: rgba(128, 128, 128, 1);
   --couleur-neutre-pale: rgba(191, 191, 191, 1);
+  --degrade-couleur: linear-gradient(180deg,rgba(255, 60, 46, 1) 0%, rgba(158, 0, 0, 1) 100%);
 }
 
 /* ------------Styles généraux-------------- */
@@ -32,6 +40,7 @@
   --titre3: 700 20px "Raleway", sans-serif;
   --titre4: 900 16px "Raleway", sans-serif;
   --titre5: 700 12px "Raleway", sans-serif;
+  --titre-black: 900;
   --titre-interligne: 30px;
 }
 
