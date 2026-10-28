@@ -77,4 +77,65 @@ function underscores_child_scripts() {
 add_action( 'wp_enqueue_scripts', 'underscores_child_scripts' );
 */
 
-?>
+
+/* ============================================================
+ * PIED DE PAGE (issue #36)
+ * ============================================================ */
+
+/**
+ * Emplacements de menus du pied de page.
+ * Le comité les remplit dans Apparence > Menus.
+ */
+function sppcm_footer_menus() {
+    register_nav_menus( array(
+        'footer-liens-rapides' => 'Pied de page — Liens rapides',
+        'footer-documentation' => 'Pied de page — Documentation',
+        'footer-a-propos'      => 'Pied de page — À propos',
+    ) );
+}
+add_action( 'after_setup_theme', 'sppcm_footer_menus' );
+
+
+/**
+ * Réglages du pied de page modifiables sans code.
+ * Apparence > Personnaliser > Pied de page.
+ */
+function sppcm_footer_customizer( $wp_customize ) {
+
+    $wp_customize->add_section( 'sppcm_pied_de_page', array(
+        'title'    => 'Pied de page',
+        'priority' => 160,
+    ) );
+
+    $champs = array(
+        'sppcm_facebook' => array( 'Lien Facebook',        '',                       'url' ),
+        'sppcm_courriel' => array( 'Adresse électronique', '',                       'email' ),
+        'sppcm_csn'      => array( 'Lien CSN',             'https://www.csn.qc.ca/', 'url' ),
+        'sppcm_fneeq'    => array( 'Lien Fneeq',           'https://fneeq.qc.ca/',   'url' ),
+    );
+
+    foreach ( $champs as $id => $champ ) {
+        $wp_customize->add_setting( $id, array(
+            'default'           => $champ[1],
+            'sanitize_callback' => ( 'email' === $champ[2] ) ? 'sanitize_email' : 'esc_url_raw',
+        ) );
+        $wp_customize->add_control( $id, array(
+            'label'       => $champ[0],
+            'description' => 'Laisser vide pour cacher l\'icône.',
+            'section'     => 'sppcm_pied_de_page',
+            'type'        => $champ[2],
+        ) );
+    }
+
+    $wp_customize->add_setting( 'sppcm_copyright', array(
+        'default'           => 'SPPCM - Le Syndicat des professeures et professeurs du Collège Maisonneuve. Tous droits réservés.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'sppcm_copyright', array(
+        'label'       => 'Texte du droit d\'auteur',
+        'description' => 'L\'année s\'ajoute automatiquement.',
+        'section'     => 'sppcm_pied_de_page',
+        'type'        => 'textarea',
+    ) );
+}
+add_action( 'customize_register', 'sppcm_footer_customizer' );

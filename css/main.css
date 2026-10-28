@@ -30,7 +30,6 @@
   --couleur-neutre-foncee:rgba(64, 64, 64, 1);
   --couleur-neutre-moyenne: rgba(128, 128, 128, 1);
   --couleur-neutre-pale: rgba(191, 191, 191, 1);
-  --degrade-couleur: linear-gradient(180deg, var( --couleur-item-pale) 0%, var(--couleur-item-fonce) 100%);
 }
 
 /* ------------Styles généraux-------------- */
@@ -51,27 +50,21 @@
 
 /* ---------------Styles des polices de titre------------------- */
 :root {
-  --titre-police: "Raleway", sans-serif;
-  --titre-black: 900;
-  --titre-gras: 700;
-  --titre1: 24px; 
-  --titre2: 22px;
-  --titre3: 20px;
-  --titre4: 16px;
-  --titre5: 12px;
+  --titre1: 900 24px "Raleway", sans-serif;
+  --titre2: 900 22px "Raleway", sans-serif;
+  --titre3: 700 20px "Raleway", sans-serif;
+  --titre4: 900 16px "Raleway", sans-serif;
+  --titre5: 700 12px "Raleway", sans-serif;
   --titre-interligne: 30px;
 }
 
 /* ---------------Styles des polices de contenu-------------- */
 :root {
-  --texte-police: "Geologica" , sans-serif;
-  --texte1: 18px;
-  --texte2: 16px;
-  --texte3: 16px;
-  --texte4: 14px;
-  --texte5: 10px;
-  --texte-gras: 700;
-  --texte-regulier: 200;
+  --texte1: 200 18px "Geologica" , sans-serif;
+  --texte2: 200 16px "Geologica" , sans-serif;
+  --texte3: 700 16px "Geologica" , sans-serif;
+  --texte4: 200 14px "Geologica" , sans-serif;
+  --texte5: 200 10px "Geologica" , sans-serif;
   --texte2-interligne: 20px;
   --texte4-interligne: 18px;
 }
@@ -165,33 +158,6 @@ h2 {
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
 
-body{
-  background-color: var(--couleur-de-fond);
-}
-
-/**
- * main.scss — Point d'entrée principal de la compilation Sass.
- *
- * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
- * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
- * uniquement des imports.
- *
- * Utiliser @use (pas @import, qui est déprécié) :
- *   @use 'chemin/vers/nom-du-fichier';
- *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
- *     l'extension ni le underscore dans l'import)
- *
- * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
- * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
- * d'accumuler tous les fichiers .scss dans un seul dossier.
- *
- * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
- * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
- * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
- *
- * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
- * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
- */
 .entete {
   display: flex;
   align-items: center;
@@ -207,8 +173,14 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  height: 7vh;
+  padding: 1rem;
+}
+.site-header .bouton-menu {
+  display: none;
+  display: block;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
 }
 .site-header .entete_logo {
   flex-shrink: 0;
@@ -331,29 +303,6 @@ body{
   border: 0;
 }
 
-/**
- * main.scss — Point d'entrée principal de la compilation Sass.
- *
- * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
- * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
- * uniquement des imports.
- *
- * Utiliser @use (pas @import, qui est déprécié) :
- *   @use 'chemin/vers/nom-du-fichier';
- *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
- *     l'extension ni le underscore dans l'import)
- *
- * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
- * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
- * d'accumuler tous les fichiers .scss dans un seul dossier.
- *
- * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
- * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
- * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
- *
- * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
- * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
- */
 .section_general {
   display: flex;
   flex-direction: column;
@@ -415,66 +364,95 @@ body{
   align-items: center;
 }
 
-/**
- * main.scss — Point d'entrée principal de la compilation Sass.
- *
- * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
- * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
- * uniquement des imports.
- *
- * Utiliser @use (pas @import, qui est déprécié) :
- *   @use 'chemin/vers/nom-du-fichier';
- *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
- *     l'extension ni le underscore dans l'import)
- *
- * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
- * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
- * d'accumuler tous les fichiers .scss dans un seul dossier.
- *
- * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
- * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
- * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
- *
- * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
- * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
- */
 .site-footer {
   background-color: var(--footer-couleur-fond);
   color: var(--footer-couleur-contenu);
-  padding: 40px var(--marge-desktop);
+  padding: 30px var(--marge-mobile);
+}
+.site-footer a {
+  color: var(--footer-couleur-contenu);
+  text-decoration: none;
+}
+.site-footer a:focus-visible {
+  outline: 2px solid var(--couleur-item-pale);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 .site-footer .footer-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
-.site-footer .footer-branding .custom-logo {
-  display: block;
-  width: 150px;
-  max-width: 100%;
-  height: auto;
+.site-footer {
+  /* --- Colonnes de liens --- */
+}
+.site-footer .footer-colonnes {
+  display: grid;
+  gap: 25px;
+}
+.site-footer .footer-titre {
+  font: 700 1.6rem/1.2 "Poppins", Arial, sans-serif;
+  color: var(--footer-couleur-contenu);
+  margin: 0 0 8px;
 }
 .site-footer .footer-navigation .footer-menu {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
+  flex-direction: column;
+  gap: 4px;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .site-footer .footer-navigation a {
   font: var(--texte2);
-  color: var(--footer-couleur-contenu);
-  text-decoration: none;
 }
 .site-footer .footer-navigation a:hover {
   color: var(--couleur-item-pale);
+}
+.site-footer {
+  /* --- Logo et icônes --- */
+}
+.site-footer .footer-branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.site-footer .footer-branding .custom-logo {
+  display: block;
+  width: 190px;
+  max-width: 100%;
+  height: auto;
+}
+.site-footer .footer-icones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-footer .footer-icones a {
+  display: block;
+  transition: transform 0.15s ease;
+}
+.site-footer .footer-icones a:hover {
+  transform: scale(1.08);
+}
+.site-footer .footer-icones img {
+  display: block;
+  width: 38px;
+  height: 38px;
+}
+.site-footer .footer-icones .footer-icone-fneeq {
+  width: auto;
+}
+.site-footer {
+  /* --- Droits d'auteur --- */
 }
 .site-footer .footer-copyright {
   text-align: center;
@@ -482,35 +460,52 @@ body{
 .site-footer .footer-copyright p {
   font: var(--texte4);
   color: var(--footer-couleur-droits);
-  margin: 0;
-}
-
-/* LAPTOP */
-@media (max-width: 1024px) {
-  .site-footer {
-    padding: 30px var(--marge-tablette);
-  }
+  max-width: 32rem;
+  margin: 0 auto;
+  line-height: 2;
 }
 
 /* TABLETTE */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .site-footer {
-    padding: 25px var(--marge-mobile);
+    padding: 40px var(--marge-tablette);
   }
-    .site-footer .footer-navigation .footer-menu {
-    flex-direction: column;
-    gap: 15px;
+  .site-footer .footer-colonnes {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-
-/* MOBILE */
-@media (max-width: 500px) {
+/* LAPTOP */
+@media (min-width: 1024px) {
   .site-footer {
-    padding: 25px var(--marge-mobile);
+    padding: 50px var(--marge-desktop) 30px;
   }
-  .site-footer .footer-navigation .footer-menu {
-    flex-direction: column;
-    gap: 15px;
+  .site-footer .footer-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 50px;
+    row-gap: 40px;
+  }
+  .site-footer .footer-colonnes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .site-footer .footer-branding {
+    align-items: flex-end;
+  }
+  .site-footer .footer-icones {
+    justify-content: flex-end;
+  }
+  .site-footer .footer-copyright {
+    grid-column: 1/-1;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-footer .footer-icones a {
+    transition: none;
+  }
+  .site-footer .footer-icones a:hover {
+    transform: none;
   }
 }
 
