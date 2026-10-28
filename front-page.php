@@ -17,6 +17,9 @@ get_header();
     <section class="accueil-infolettres">
         <h3>Infolettres</h3>
     </section>
+    <section class="accueil-infolettres">
+        <h3>Actualités</h3>
+    </section>
 </div>
 
 <?php
