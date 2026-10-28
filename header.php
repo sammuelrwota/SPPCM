@@ -37,7 +37,9 @@
         aria-expanded="false"
         aria-controls="liens-navigation"
       >
-        <img src="images/Menu.png" alt="" />
+        <img
+           src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/menu.png'); ?>"
+           alt="" />
       </button>
       
         <div class="entete_logo">
