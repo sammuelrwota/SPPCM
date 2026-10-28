@@ -12,9 +12,9 @@
 
     <?php wp_head(); ?> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap" rel="stylesheet">
 </head>
 
 <body <?php body_class(); ?>>
@@ -29,7 +29,6 @@
     <header id="masthead" class="site-header">
 
     <div class="entete">
-        
         <button
         class="bouton-menu"
         type="button"
@@ -41,7 +40,6 @@
            src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/menu.png'); ?>"
            alt="" />
       </button>
-      
         <div class="entete_logo">
 
         <?php if (has_custom_logo()) : ?>

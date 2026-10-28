@@ -1,0 +1,438 @@
+@charset "UTF-8";
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
+/*------------Styles des couleurs utilisées dans la page------------------*/
+:root {
+  --couleur-de-fond: rgba(234, 235, 235, 1);
+  --couleur-item-pale: rgba(255, 60, 46, 1);
+  --couleur-item-fonce: rgba(158, 0, 0, 1);
+  --couleur-neutre-foncee:rgba(64, 64, 64, 1);
+  --couleur-neutre-moyenne: rgba(128, 128, 128, 1);
+  --couleur-neutre-pale: rgba(191, 191, 191, 1);
+}
+
+/* ------------Styles généraux-------------- */
+:root {
+  --corner-radius: 20px;
+  --corner-radius-interne: 14px;
+  --marge-mobile: 15px;
+  --marge-tablette: 65px;
+  --marge-desktop: 150px;
+  --largeur-icones: 24px;
+}
+
+/*-------------Styles du texte------------------------------------*/
+:root {
+  --couleur-texte-fonce: rgba(0, 0, 0, 1);
+  --couleur-texte-pale: rgba(255, 255, 255, 1);
+}
+
+/* ---------------Styles des polices de titre------------------- */
+:root {
+  --titre1: 900 24px "Raleway", sans-serif;
+  --titre2: 900 22px "Raleway", sans-serif;
+  --titre3: 700 20px "Raleway", sans-serif;
+  --titre4: 900 16px "Raleway", sans-serif;
+  --titre5: 700 12px "Raleway", sans-serif;
+  --titre-interligne: 30px;
+}
+
+/* ---------------Styles des polices de contenu-------------- */
+:root {
+  --texte1: 200 18px "Geologica" , sans-serif;
+  --texte2: 200 16px "Geologica" , sans-serif;
+  --texte3: 700 16px "Geologica" , sans-serif;
+  --texte4: 200 14px "Geologica" , sans-serif;
+  --texte5: 200 10px "Geologica" , sans-serif;
+  --texte2-interligne: 20px;
+  --texte4-interligne: 18px;
+}
+
+/* --------------Styles du nav---------------- */
+:root {
+  --nav-couleur-icone: rgba(0, 0, 0, 1);
+  --nav-couleur-bouton: rgba(158, 0, 0, 1);
+  --nav-couleur-bouton-choisi: rgba(128, 128, 128, 1);
+  --nav-bouton-grande-courbe: 15px;
+  --nav-bouton-petite-courbe: 2px;
+}
+
+/*----------------Styles du footer--------------------------*/
+:root {
+  --footer-couleur-fond: rgba(0, 0, 0, 1);
+  --footer-couleur-contenu: rgba(255, 255, 255, 1);
+  --footer-couleur-droits: rgba(128, 128, 128, 1);
+}
+
+/*--------------Styles des ombres------------------------*/
+:root {
+  --ombre-couleur: rgba(135, 124, 124, 1);
+  --ombre-position-x: 0px;
+  --ombre-position-y: 3px;
+  --ombre-flou: 6px;
+}
+
+/*------------------Style des boutons------------------ */
+:root {
+  --bouton-couleur: #FF0000;
+  --bouton-couleur-hover: #9E0000;
+  --bouton-largeur: 116px;
+  --bouton-hauteur: 46px;
+  --bouton-ombre: drop-shadow(0 3px 6px #877C7C);
+  --bouton-radius: 31px 31px 31px 31px;
+}
+
+.bouton {
+  background-color: var(--bouton-couleur);
+  width: var(--bouton-largeur);
+  height: var(--bouton-hauteur);
+  filter: var(--bouton-ombre);
+  border-radius: var(--bouton-radius);
+}
+
+.bouton_hover {
+  background-color: var(--bouton-couleur-hover);
+  width: var(--bouton-largeur);
+  height: var(--bouton-hauteur);
+  filter: var(--bouton-ombre);
+  border-radius: var(--bouton-radius);
+}
+
+/*------------------Style de la forme générale------------------ */
+:root {
+  --forme-radius: 31px 1px 31px 1px;
+  --forme-couleur: #0400ff; /*juste un exemple*/
+  --forme-ombre: drop-shadow(0 3px 6px #877C7C);
+  --forme-largeur: 330px;
+  --forme-hauteur: 50px;
+}
+
+.forme_generale {
+  background-color: var(--forme-couleur);
+  width: var(--forme-largeur);
+  height: var(--forme-hauteur);
+  filter: var(--forme-ombre);
+  border-radius: var(--forme-radius);
+}
+
+header {
+  background-color: white;
+}
+
+footer {
+  background-color: white;
+}
+
+h1 {
+  font-family: var(--titre1);
+  line-height: var(--titre-interligne);
+}
+
+h2 {
+  font-family: var(--titre2);
+  line-height: var(--titre-interligne);
+}
+
+.ombre {
+  filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
+}
+
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.site-header {
+  background-color: var(--couleur-de-fond);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  height: 7vh;
+}
+.site-header .entete_logo {
+  flex-shrink: 0;
+}
+.site-header .entete_logo .custom-logo {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+}
+.site-header .main-navigation {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+}
+.site-header .main-navigation .menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header .main-navigation ul {
+  display: flex !important;
+  gap: 50px !important;
+}
+.site-header .main-navigation a {
+  font: var(--texte2);
+  color: var(--couleur-texte-fonce);
+  text-decoration: none;
+  font-weight: bold;
+}
+.site-header .main-navigation a:hover {
+  color: var(--couleur-item-fonce);
+}
+.site-header .recherche-entete {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 0.35rem;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 999px;
+  transition: width 220ms ease, background 180ms ease, padding 220ms ease;
+}
+.site-header .recherche-entete .bouton-recherche {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.site-header .recherche-entete .bouton-recherche img {
+  display: block;
+  width: clamp(1.25rem, 2.2vw, 2rem);
+  height: auto;
+}
+.site-header .recherche-entete img {
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.site-header .recherche-entete input {
+  flex: 1;
+  min-width: 0;
+  width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.site-header .recherche-entete .fermer-recherche-entete {
+  flex: 0 0 auto;
+  padding: 0 0.3rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+.site-header .recherche-entete.est-ouverte {
+  width: 250px;
+  padding: 0 0.75rem;
+  background: #dedede;
+}
+.site-header .recherche-entete.est-ouverte input {
+  opacity: 1;
+  visibility: visible;
+}
+.site-header .recherche-entete.est-ouverte .fermer-recherche-entete {
+  opacity: 1;
+  visibility: visible;
+}
+
+.visuellement-masque {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.section_general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+  padding: 40px 0;
+  background-color: #D9D9D9;
+}
+.section_general h1 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 50px;
+  color: black;
+}
+.section_general .blocs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  width: 85%;
+  max-width: 1400px;
+}
+.section_general .blocs .bloc_gauche {
+  width: 45%;
+}
+.section_general .blocs .bloc_gauche p {
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+.section_general .blocs .bloc_droite {
+  width: 45%;
+  height: 300px;
+  background-color: #808080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section_general .blocs .bloc_droite img {
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.site-main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.site-main .main_contenu {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-footer {
+  background-color: var(--footer-couleur-fond);
+  color: var(--footer-couleur-contenu);
+  padding: 40px var(--marge-desktop);
+}
+.site-footer .footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.site-footer .footer-branding .custom-logo {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+}
+.site-footer .footer-navigation .footer-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-footer .footer-navigation a {
+  font: var(--texte2);
+  color: var(--footer-couleur-contenu);
+  text-decoration: none;
+}
+.site-footer .footer-navigation a:hover {
+  color: var(--couleur-item-pale);
+}
+.site-footer .footer-copyright {
+  text-align: center;
+}
+.site-footer .footer-copyright p {
+  font: var(--texte4);
+  color: var(--footer-couleur-droits);
+  margin: 0;
+}
+
+/* LAPTOP */
+@media (minx-width: 1024px) {
+  .site-footer {
+    padding: 30px var(--marge-tablette);
+    background-color: rgb(255, 53, 3);
+  }
+}
+/* TABLETTE */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 25px var(--marge-mobile);
+    background-color: rgb(255, 146, 3);
+  }
+  .site-footer .footer-navigation .footer-menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+/* MOBILE */
+@media (max-width: 500px) {
+  .site-footer {
+    padding: 25px var(--marge-mobile);
+    background-color: rgb(25, 6, 147);
+  }
+  .site-footer .footer-navigation .footer-menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+/*# sourceMappingURL=main.csst.map */
