@@ -793,6 +793,24 @@ p {
   padding: 10px 20px;
   border-radius: var(--corner-radius) 0 var(--corner-radius) 0;
   margin: 20px 0px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-items: center;
+}
+.actualite-single .image-article {
+  margin: 0 20px 0 0;
+}
+.actualite-single .infos-article {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.actualite-single .infos-article h3 {
+  margin: 0 0 5px 0;
+}
+.actualite-single .infos-article p {
+  margin: 0;
 }
 
 /**

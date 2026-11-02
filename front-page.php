@@ -29,15 +29,17 @@ get_header();
 
                     if (get_the_post_thumbnail() != null):
                     ?>
-
-                        <img src="<?php the_post_thumbnail(); ?>">
+                        <div class="image-article">
+                            <?php echo the_post_thumbnail($size = 'thumbnail') ?>
+                        </div>
                     <?php endif; ?>
+                    <div class="infos-article">
+                        <h3><?php the_title(); ?></h3>
 
-                    <h3><?php the_title(); ?></h3>
-
-                    <section class="article-contenu">
-                        <p><?php echo get_the_date(); ?></p>
-                    </section>
+                        <div class="article-contenu">
+                            <p><?php echo get_the_date(); ?></p>
+                        </div>
+                    </div>
                 </div>
             <?php } ?>
         </div>

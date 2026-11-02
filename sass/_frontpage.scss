@@ -67,4 +67,25 @@ p{
   padding: 10px 20px;
   border-radius: var(--corner-radius) 0 var(--corner-radius) 0;
   margin: 20px 0px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-items: center;
+
+  .image-article{
+    margin: 0 20px 0 0;
+  }
+
+  .infos-article{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    h3{
+      margin: 0 0 5px 0;
+    }
+    p{
+      margin: 0;
+    }
+  }
 }
