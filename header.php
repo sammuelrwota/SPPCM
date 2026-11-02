@@ -109,8 +109,39 @@
                 ×
             </button>
         </form>
-
-
     </div>
-
     </header>
+
+    <div
+      class="superposition-recherche"
+      id="superposition-recherche"
+      aria-hidden="true"
+    >
+      <button
+        class="fond-recherche"
+        type="button"
+        aria-label="Fermer la recherche"
+      ></button>
+      <form
+        class="panneau-recherche"
+        role="search"
+        method="get"
+        action="<?php echo esc_url(home_url('/')); ?>"
+      >
+        <label class="visuellement-masque" for="champ-recherche">Rechercher</label>
+        <input
+          id="champ-recherche"
+          name="s"
+          type="search"
+          placeholder="Rechercher..."
+          value="<?php echo esc_attr(get_search_query()); ?>"
+        />
+        <button
+          type="button"
+          class="fermer-recherche"
+          aria-label="Fermer la recherche"
+        >
+          ×
+        </button>
+      </form>
+    </div>
