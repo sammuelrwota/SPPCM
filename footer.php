@@ -9,8 +9,8 @@
  */
 
 $images   = get_stylesheet_directory_uri() . '/images/';
-$facebook = get_theme_mod( 'sppcm_facebook', '' );
-$courriel = get_theme_mod( 'sppcm_courriel', '' );
+$facebook = get_theme_mod( 'sppcm_facebook', 'https://www.facebook.com/SPPCM-Syndicat-des-profs-du-Coll%C3%A8ge-de-Maisonneuve-269189569775065/' );
+$courriel = get_theme_mod( 'sppcm_courriel', 'mailto:sppcm@cmaisonneuve.qc.ca' );
 $csn      = get_theme_mod( 'sppcm_csn', 'https://www.csn.qc.ca/' );
 $fneeq    = get_theme_mod( 'sppcm_fneeq', 'https://fneeq.qc.ca/' );
 $droits   = get_theme_mod(
@@ -75,7 +75,7 @@ $colonnes = array(
 				<?php if ( $csn ) : ?>
 					<li>
 						<a href="<?php echo esc_url( $csn ); ?>" target="_blank" rel="noopener">
-							<img src="<?php echo esc_url( $images . 'logo-csn.svg' ); ?>"
+							<img src="<?php echo esc_url( $images . 'logo_csn.png' ); ?>"
 							     alt="CSN (nouvel onglet)" width="38" height="38">
 						</a>
 					</li>
@@ -85,7 +85,7 @@ $colonnes = array(
 					<li>
 						<a href="<?php echo esc_url( $fneeq ); ?>" target="_blank" rel="noopener">
 							<img class="footer-icone-fneeq"
-							     src="<?php echo esc_url( $images . 'logo-fneeq.svg' ); ?>"
+							     src="<?php echo esc_url( $images . 'logo_fneeq.png' ); ?>"
 							     alt="Fneeq (nouvel onglet)" width="92" height="38">
 						</a>
 					</li>
