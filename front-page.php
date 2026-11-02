@@ -23,24 +23,27 @@ get_header();
         <div class="article">
             <?php
             for ($i = 0; $i < 3; $i++) { ?>
-                <div class="actualite-single">
-                    <?php
-                    the_post();
+                <?php the_post(); ?>
+                <a href=<?php the_permalink() ?>>
+                    <div class="actualite-single">
+                        <?php
 
-                    if (get_the_post_thumbnail() != null):
-                    ?>
-                        <div class="image-article">
-                            <?php echo the_post_thumbnail($size = 'thumbnail') ?>
-                        </div>
-                    <?php endif; ?>
-                    <div class="infos-article">
-                        <h3><?php the_title(); ?></h3>
 
-                        <div class="article-contenu">
-                            <p><?php echo get_the_date(); ?></p>
+                        if (get_the_post_thumbnail() != null):
+                        ?>
+                            <div class="image-article">
+                                <?php echo the_post_thumbnail($size = 'thumbnail') ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="infos-article">
+                            <h3><?php the_title(); ?></h3>
+
+                            <div class="article-contenu">
+                                <p><?php echo get_the_date(); ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             <?php } ?>
         </div>
     </section>
