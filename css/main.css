@@ -191,13 +191,15 @@ h2 {
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
 .entete {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  gap: 30px;
+  gap: 15px;
   margin-left: 15px;
   margin-right: 15px;
+  position: relative;
 }
 
 .site-header {
@@ -208,13 +210,31 @@ h2 {
   padding: 1rem;
 }
 .site-header .bouton-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 30;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  align-self: center;
 }
 .site-header .bouton-menu img {
   width: 10vw;
   max-width: 2.25rem;
+}
+.site-header .entete-logo {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  transform: translateY(2px);
 }
 .site-header .entete-logo .custom-logo {
   width: 40vw;
@@ -240,6 +260,11 @@ h2 {
   opacity: 0;
   transform: translateY(-0.75rem);
   transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+}
+.site-header .main-navigation .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .site-header .main-navigation a {
   font: var(--texte2);
@@ -296,6 +321,10 @@ h2 {
   gap: 0.5rem;
   flex-shrink: 0;
   margin-left: auto;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
   width: 2.75rem;
   height: 2.75rem;
   padding: 0 0.35rem;
@@ -362,6 +391,56 @@ h2 {
   visibility: visible;
 }
 
+@media (min-width: 768px) {
+  .site-header .entete {
+    grid-template-columns: auto 1fr auto;
+    gap: 5rem;
+  }
+  .site-header .entete-logo {
+    grid-column: 1;
+    justify-self: start;
+  }
+  .site-header .bouton-menu,
+  .site-header .fermer-menu {
+    display: none;
+  }
+  .site-header .main-navigation {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    grid-column: 2;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    padding: 0;
+    overflow: visible;
+    max-height: none;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+  .site-header .main-navigation .menu {
+    display: flex;
+    align-items: center;
+    gap: 6vw;
+  }
+  .site-header .main-navigation a::before {
+    display: none;
+  }
+  .site-header .main-navigation.ouvert {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+  .site-header .recherche-entete {
+    grid-column: 3;
+    margin-left: 0;
+    margin-right: 0;
+    justify-self: end;
+  }
+}
 .visuellement-masque {
   position: absolute;
   width: 1px;
