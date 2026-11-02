@@ -205,8 +205,14 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  height: 7vh;
+  padding: 1rem;
+}
+.site-header .bouton-menu {
+  display: none;
+  display: block;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
 }
 .site-header .entete_logo {
   flex-shrink: 0;
@@ -484,27 +490,28 @@ h2 {
 }
 
 /* LAPTOP */
-@media (max-width: 1024px) {
+@media (minx-width: 1024px) {
   .site-footer {
     padding: 30px var(--marge-tablette);
+    background-color: rgb(255, 53, 3);
   }
 }
-
 /* TABLETTE */
 @media (max-width: 768px) {
   .site-footer {
     padding: 25px var(--marge-mobile);
+    background-color: rgb(255, 146, 3);
   }
-    .site-footer .footer-navigation .footer-menu {
+  .site-footer .footer-navigation .footer-menu {
     flex-direction: column;
     gap: 15px;
   }
 }
-
 /* MOBILE */
 @media (max-width: 500px) {
   .site-footer {
     padding: 25px var(--marge-mobile);
+    background-color: rgb(25, 6, 147);
   }
   .site-footer .footer-navigation .footer-menu {
     flex-direction: column;
@@ -592,4 +599,13 @@ p {
   color: var(--couleur-texte-pale);
   padding: 5px 20px;
   border-radius: 40px 0 40px 0;
-}/*# sourceMappingURL=main.css.map */
+}
+
+.article {
+  background: var(--degrade-couleur);
+  color: var(--couleur-texte-pale);
+  padding: 20px;
+  border-radius: var(--corner-radius) 0 var(--corner-radius) 0;
+}
+
+/*# sourceMappingURL=main.css.map */

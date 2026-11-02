@@ -18,12 +18,26 @@ get_header();
         <h3>Infolettres</h3>
     </section>
 
-    <section class="accueil-infolettres">
+    <section class="accueil-actualites">
         <h3>Actualités</h3>
-        <div>
+        <div class="article">
             <?php
-                
+            for ($i = 0; $i < 3; $i++) {
+                the_post();
+
+                if (get_the_post_thumbnail() != null):
             ?>
+
+                    <img src="<?php the_post_thumbnail(); ?>">
+                <?php endif; ?>
+
+                <h3><?php the_title(); ?></h3>
+
+                <section class="article-contenu">
+                    <?php echo get_the_date(); ?>
+                </section>
+
+            <?php } ?>
         </div>
     </section>
 </div>
