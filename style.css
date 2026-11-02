@@ -22,7 +22,7 @@ h1{
   font-size: var(--titre1);
   font-weight: var(--titre-black);
   line-height: var(--titre-interligne);
-  color: mediumslateblue;
+  color: var(--couleur-texte-fonce);
 }
 
 h3{

@@ -117,6 +117,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   menuNavigation.querySelectorAll("a").forEach((lien) => {
+    const itemParent = lien.closest(".menu-item-has-children, .page_item_has_children");
+
+    if (itemParent) {
+      lien.setAttribute("href", "#");
+      lien.setAttribute("aria-disabled", "true");
+      lien.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+      return;
+    }
+
     lien.addEventListener("click", fermerMenu);
   });
 

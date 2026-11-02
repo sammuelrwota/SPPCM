@@ -216,7 +216,8 @@ h2 {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 30;
+  position: relative;
+  z-index: 1;
   grid-column: 1;
   grid-row: 1;
   justify-self: start;
@@ -243,7 +244,7 @@ h2 {
 .site-header .main-navigation {
   position: fixed;
   inset: 0 0 auto;
-  z-index: 20;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -258,6 +259,7 @@ h2 {
   border-radius: 0 0 2.5rem 2.5rem;
   visibility: hidden;
   opacity: 0;
+  scrollbar-width: none;
   transform: translateY(-0.75rem);
   transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
 }
@@ -275,14 +277,18 @@ h2 {
 .site-header .main-navigation a:hover {
   color: var(--couleur-item-fonce);
 }
-.site-header .main-navigation a::before {
+.site-header .main-navigation .menu-item-has-children > a::before,
+.site-header .main-navigation .page_item_has_children > a::before {
   content: "";
+  display: inline-block;
   flex: 0 0 auto;
-  width: 0;
-  height: 0;
-  border-top: 2.55rem solid #111;
-  border-right: 0.4rem solid transparent;
-  border-left: 0.4rem solid transparent;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.75rem;
+  background-image: url("../images/icone_fleche.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 .site-header .main-navigation h3 {
   display: flex;
@@ -426,7 +432,8 @@ h2 {
     align-items: center;
     gap: 6vw;
   }
-  .site-header .main-navigation a::before {
+  .site-header .main-navigation .menu-item-has-children > a::before,
+  .site-header .main-navigation .page_item_has_children > a::before {
     display: none;
   }
   .site-header .main-navigation.ouvert {
