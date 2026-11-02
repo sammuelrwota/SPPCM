@@ -61,9 +61,10 @@ p{
   border-radius: 40px 0 40px 0;
 }
 
-.article{
-    background: var(--degrade-couleur);
+.actualite-single{
+  background: var(--degrade-couleur);
   color: var(--couleur-texte-pale);
-  padding: 20px;
+  padding: 10px 20px;
   border-radius: var(--corner-radius) 0 var(--corner-radius) 0;
+  margin: 20px 0px;
 }

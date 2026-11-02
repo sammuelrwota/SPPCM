@@ -22,21 +22,23 @@ get_header();
         <h3>Actualités</h3>
         <div class="article">
             <?php
-            for ($i = 0; $i < 3; $i++) {
-                the_post();
+            for ($i = 0; $i < 3; $i++) { ?>
+                <div class="actualite-single">
+                    <?php
+                    the_post();
 
-                if (get_the_post_thumbnail() != null):
-            ?>
+                    if (get_the_post_thumbnail() != null):
+                    ?>
 
-                    <img src="<?php the_post_thumbnail(); ?>">
-                <?php endif; ?>
+                        <img src="<?php the_post_thumbnail(); ?>">
+                    <?php endif; ?>
 
-                <h3><?php the_title(); ?></h3>
+                    <h3><?php the_title(); ?></h3>
 
-                <section class="article-contenu">
-                    <?php echo get_the_date(); ?>
-                </section>
-
+                    <section class="article-contenu">
+                        <p><?php echo get_the_date(); ?></p>
+                    </section>
+                </div>
             <?php } ?>
         </div>
     </section>
