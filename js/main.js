@@ -77,6 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const boutonRecherche = document.querySelector(".bouton-recherche");
   const boutonFermer = document.querySelector(".fermer-recherche-entete");
   const champRecherche = document.querySelector("#champ-recherche-entete");
+  const superpositionRecherche = document.querySelector("#superposition-recherche");
+  const fondRecherche = document.querySelector(".fond-recherche");
+  const panneauRecherche = document.querySelector(".panneau-recherche");
+  const champRechercheOverlay = document.querySelector("#champ-recherche");
+  const boutonFermerRechercheOverlay = document.querySelector(".fermer-recherche");
 
   if (!menuNavigation || !boutonMenu || !boutonFermerMenu) {
     return;
@@ -136,17 +141,53 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  function basculerRecherche(ouvrir) {
+    const estMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    if (estMobile && superpositionRecherche) {
+      superpositionRecherche.classList.toggle("ouverte", ouvrir);
+      superpositionRecherche.setAttribute("aria-hidden", String(!ouvrir));
+      document.body.classList.toggle("recherche-ouverte", ouvrir);
+
+      if (ouvrir) {
+        document.body.classList.remove("menu-ouvert");
+        menuNavigation.classList.remove("ouvert");
+        boutonMenu.setAttribute("aria-expanded", "false");
+        champRechercheOverlay?.focus();
+      }
+
+      return;
+    }
+
+    formulaire.classList.toggle("est-ouverte", ouvrir);
+    document.body.classList.remove("recherche-ouverte");
+
+    boutonRecherche.setAttribute("aria-expanded", String(ouvrir));
+    boutonRecherche.setAttribute(
+      "aria-label",
+      ouvrir ? "Lancer la recherche" : "Ouvrir la recherche",
+    );
+
+    if (ouvrir) {
+      document.body.classList.remove("menu-ouvert");
+      menuNavigation.classList.remove("ouvert");
+      boutonMenu.setAttribute("aria-expanded", "false");
+      champRecherche.focus();
+    }
+  }
+
   // OUVRIR LA RECHERCHE
   boutonRecherche.addEventListener("click", () => {
+    const estMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    if (estMobile) {
+      basculerRecherche(true);
+      return;
+    }
+
     if (!formulaire.classList.contains("est-ouverte")) {
-      formulaire.classList.add("est-ouverte");
-
-      boutonRecherche.setAttribute("aria-expanded", "true");
-      boutonRecherche.setAttribute("aria-label", "Lancer la recherche");
-
-      champRecherche.focus();
+      basculerRecherche(true);
     } else if (champRecherche.value.trim() !== "") {
-      // Lancer la recherche WordPress
       formulaire.requestSubmit();
     } else {
       champRecherche.focus();
@@ -155,11 +196,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // FERMER LA RECHERCHE
   boutonFermer.addEventListener("click", () => {
-    formulaire.classList.remove("est-ouverte");
-
-    boutonRecherche.setAttribute("aria-expanded", "false");
-    boutonRecherche.setAttribute("aria-label", "Ouvrir la recherche");
-
+    basculerRecherche(false);
     boutonRecherche.focus();
+  });
+
+  fondRecherche?.addEventListener("click", () => basculerRecherche(false));
+  boutonFermerRechercheOverlay?.addEventListener("click", () => basculerRecherche(false));
+  panneauRecherche?.addEventListener("submit", (event) => {
+    if (!champRechercheOverlay?.value.trim()) {
+      event.preventDefault();
+      champRechercheOverlay.focus();
+    }
   });
 });
