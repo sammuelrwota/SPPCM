@@ -20,6 +20,13 @@ h1{
   line-height: var(--titre-interligne);
 }
 
+h2{
+  font-family: var(--titre-police);
+  font-size: var(--titre2);
+  font-weight: var(--titre-gras);
+  line-height: var(--titre-interligne);
+}
+
 h3{
   font-family: var(--titre-police);
   font-size: var(--titre3);
@@ -40,7 +47,7 @@ p{
 
 /* STYLES DE LA PAGE D'ACCUEIL */
 .page-accueil{
-  margin: var(--marge-mobile);
+  margin: 0 var(--marge-mobile);
 }
 
 .titre-principal{
@@ -63,6 +70,19 @@ p{
 
 a{
   text-decoration: none;
+}
+
+.infolettre-single{
+    margin: 20px 0px;
+    color: var(--couleur-neutre-foncee);
+  .infos-infolettre{
+    h3{
+      margin: 0 0 5px 0;
+    }
+    p{
+      margin: 0;
+    }
+  }
 }
 
 .actualite-single{
@@ -92,4 +112,46 @@ a{
       margin: 0;
     }
   }
+}
+
+section{
+  margin: 40px 0;
+}
+
+/* TABLETTE */
+@media (min-width: 768px) {
+
+  section{
+    margin: 20px var(--marge-tablette);
+  }
+}
+
+/* LAPTOP */
+@media (min-width: 1024px) {
+  .banniere{
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    gap: 20px;
+    justify-content: space-between;
+
+    .titre-principal{
+      font-size: var(--titre1);
+    }
+    
+    .infos-syndicat{
+      width: 75%;
+      p{
+        font-size: var(--texte1);
+      }
+    }
+  }
+  section{
+    margin: 20px var(--marge-desktop);
+  }
+
+ .article{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+ }
 }

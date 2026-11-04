@@ -139,3 +139,8 @@ function sppcm_footer_customizer( $wp_customize ) {
     ) );
 }
 add_action( 'customize_register', 'sppcm_footer_customizer' );
+
+function custom_excerpt_length( $length ) {
+        return 15;
+    }
+    add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
