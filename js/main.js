@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function fermerMenu() {
     menuNavigation.classList.remove("ouvert");
     boutonMenu.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("menu-ouvert");
   }
 
   function actualiserEnteteAuDefilement() {
@@ -112,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const vaOuvrir = !menuNavigation.classList.contains("ouvert");
     menuNavigation.classList.toggle("ouvert", vaOuvrir);
     boutonMenu.setAttribute("aria-expanded", String(vaOuvrir));
-    document.body.classList.toggle("menu-ouvert", vaOuvrir);
     if (vaOuvrir) boutonFermerMenu.focus();
   });
 
@@ -150,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.toggle("recherche-ouverte", ouvrir);
 
       if (ouvrir) {
-        document.body.classList.remove("menu-ouvert");
         menuNavigation.classList.remove("ouvert");
         boutonMenu.setAttribute("aria-expanded", "false");
         champRechercheOverlay?.focus();
@@ -169,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     if (ouvrir) {
-      document.body.classList.remove("menu-ouvert");
       menuNavigation.classList.remove("ouvert");
       boutonMenu.setAttribute("aria-expanded", "false");
       champRecherche.focus();
