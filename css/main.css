@@ -43,6 +43,7 @@
   --marge-tablette: 65px;
   --marge-desktop: 150px;
   --largeur-icones: 24px;
+  --gap-grid-desktop: 20px ;
 }
 
 /*-------------Styles du texte------------------------------------*/
@@ -970,27 +971,49 @@ section {
 /* LAPTOP */
 @media (min-width: 1024px) {
   .banniere {
+    display: grid;
+    height: 50vh;
+    grid-template-columns: 7fr 5fr;
+    grid-template-rows: auto;
+    gap: var(--gap-grid-desktop);
+    margin-bottom: 4rem;
+  }
+  .banniere .image-front {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin: 0;
+    height: 100%;
+    object-fit: cover;
+  }
+  .banniere .infos-syndicat {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin: 0;
     display: flex;
-    flex-flow: row-reverse nowrap;
-    gap: 20px;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+  }
+  .banniere .infos-syndicat p {
+    font-size: var(--titre3);
   }
   .banniere .titre-principal {
     font-size: var(--titre1);
   }
-  .banniere .infos-syndicat {
-    width: 75%;
-  }
-  .banniere .infos-syndicat p {
-    font-size: var(--texte1);
-  }
   section {
-    margin: 20px var(--marge-desktop);
+    margin: 50px var(--marge-desktop);
   }
   .article {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-auto-rows: auto;
+    gap: var(--gap-grid-desktop);
+    margin-bottom: 4rem;
+  }
+  .actualite-single {
+    grid-row: 1/2;
+    height: 100%;
   }
 }
 /**
