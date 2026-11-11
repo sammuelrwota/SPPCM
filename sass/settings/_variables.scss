@@ -18,7 +18,7 @@
   --corner-radius-interne: 14px;
   --marge-mobile: 15px;
   --marge-tablette: 65px;
-  --marge-desktop: 150px;
+  --marge-desktop: clamp(150px, 10vw, 300px);
   --largeur-icones: 24px;
   --gap-grid-desktop: 20px
 }
@@ -45,8 +45,8 @@
 /* ---------------Styles des polices de contenu-------------- */
 :root {
   --texte-police: "Geologica" , sans-serif;
-  --texte1: clamp(18px, 2rem, 28px);
-  --texte2: clamp(16px, 1.5rem, 24px);
+  --texte1: clamp(18px, 1.5vw, 24px);
+  --texte2: clamp(16px, 1vw, 20px);
   --texte3: 16px;
   --texte4: 14px;
   --texte5: 10px;

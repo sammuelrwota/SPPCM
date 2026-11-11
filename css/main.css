@@ -41,7 +41,7 @@
   --corner-radius-interne: 14px;
   --marge-mobile: 15px;
   --marge-tablette: 65px;
-  --marge-desktop: 150px;
+  --marge-desktop: clamp(150px, 10vw, 300px);
   --largeur-icones: 24px;
   --gap-grid-desktop: 20px ;
 }
@@ -68,8 +68,8 @@
 /* ---------------Styles des polices de contenu-------------- */
 :root {
   --texte-police: "Geologica" , sans-serif;
-  --texte1: clamp(18px, 2rem, 28px);
-  --texte2: clamp(16px, 1.5rem, 24px);
+  --texte1: clamp(18px, 1.5vw, 24px);
+  --texte2: clamp(16px, 1vw, 20px);
   --texte3: 16px;
   --texte4: 14px;
   --texte5: 10px;
@@ -164,6 +164,29 @@ h2 {
   filter: drop-shadow(var(--ombre-couleur) var(--ombre-position-x) var(--ombre-position-y) var(--ombre-flou));
 }
 
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 .entete {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -591,6 +614,29 @@ body.recherche-ouverte {
   border: 0;
 }
 
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 .section_general {
   display: flex;
   flex-direction: column;
@@ -652,6 +698,29 @@ body.recherche-ouverte {
   align-items: center;
 }
 
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 .site-footer {
   background-color: var(--footer-couleur-fond);
   color: var(--footer-couleur-contenu);
@@ -786,6 +855,29 @@ body.recherche-ouverte {
     transform: none;
   }
 }
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 body {
   background-color: var(--couleur-de-fond);
 }
@@ -929,7 +1021,7 @@ section {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 2.5vw 7.5vw;
   }
   .banniere .infos-syndicat p {
     font-size: var(--titre3);
@@ -952,6 +1044,29 @@ section {
     height: 100%;
   }
 }
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
 .convention_collective {
   width: 100%;
   min-height: 30vh;
