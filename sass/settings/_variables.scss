@@ -34,7 +34,7 @@
   --titre-police: "Raleway", sans-serif;
   --titre-black: 900;
   --titre-gras: 700;
-  --titre1: 24px; 
+  --titre1: clamp(20px, 5.97vw, 32px); 
   --titre2: 22px;
   --titre3: 20px;
   --titre4: 16px;
@@ -45,8 +45,8 @@
 /* ---------------Styles des polices de contenu-------------- */
 :root {
   --texte-police: "Geologica" , sans-serif;
-  --texte1: 18px;
-  --texte2: 16px;
+  --texte1: clamp(18px, 2rem, 28px);
+  --texte2: clamp(16px, 1.5rem, 24px);
   --texte3: 16px;
   --texte4: 14px;
   --texte5: 10px;
@@ -92,15 +92,11 @@
  
 .bouton {
     background-color: var(--bouton-couleur);
-    width: var(--bouton-largeur);
-    height: var(--bouton-hauteur);
     filter: var(--bouton-ombre);
     border-radius: var(--bouton-radius);
 }
-.bouton_hover {
+.bouton:hover {
     background-color: var(--bouton-couleur-hover);
-    width: var(--bouton-largeur);
-    height: var(--bouton-hauteur);
     filter: var(--bouton-ombre);
     border-radius: var(--bouton-radius);
 }
