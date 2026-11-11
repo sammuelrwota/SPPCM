@@ -496,3 +496,106 @@ body.recherche-ouverte {
   white-space: nowrap;
   border: 0;
 }
+
+
+/* *** SOUS-MENU DESKTOP *** */
+@media (min-width: 768px) {
+  .site-header .main-navigation .menu-item-has-children > .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 250px;
+    min-width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    list-style: none;
+    gap: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  }
+
+.site-header .main-navigation .menu-item-has-children:hover > a,
+.site-header .main-navigation .menu-item-has-children:focus-within > a {
+  background-color: #9E0000;
+  color: #fff;
+  border-left: 3px solid #9E0000;
+  border-radius: 1.5rem 0.25rem 0.25rem 0.25rem;
+}
+
+.site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
+.site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+  display: flex;
+}
+
+.site-header .main-navigation .menu-item-has-children > a::after {
+    content: "";
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    background: url("../images/fleche-bas.png") center / contain no-repeat;
+}
+
+.site-header .main-navigation .menu-item-has-children > a:hover::after,
+.site-header .main-navigation .menu-item-has-children:hover > a::after,
+.site-header .main-navigation .menu-item-has-children:focus-within > a::after {
+    background-image: url("../images/fleche-haut.png");
+}
+
+  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
+  .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+    display: flex;
+  }
+
+  .site-header .main-navigation .sub-menu > .menu-item {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-header .main-navigation .sub-menu > .menu-item > a {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: #000;
+    background: transparent;
+    text-align: left;
+    text-transform: none;
+    white-space: normal;
+    font-weight: 400;
+  }
+
+.site-header .main-navigation .sub-menu > .menu-item > a:hover,
+.site-header .main-navigation .sub-menu > .menu-item > a:focus-visible {
+  background-color: transparent;
+  color: #000;
+  border-radius: 0;
+  border: none;
+}
+
+  .site-header .main-navigation .sub-menu > .menu-item:last-child > a {
+    border-bottom: none;
+  }
+
+  .site-header .main-navigation .sub-menu a::after {
+    content: none;
+    display: none;
+  }
+}
+
