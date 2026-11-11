@@ -1074,16 +1074,37 @@ section {
 .convention_collective .convention-collective_section ul li {
   font-family: var(--titre-police) !important;
 }
+.convention_collective .convention-collective_section ul span h3,
+.convention_collective .convention-collective_section ul li h3 {
+  border-bottom: 2px solid rgba(41, 41, 41, 0.175);
+}
 .convention_collective .convention-collective_section ul span a,
 .convention_collective .convention-collective_section ul li a {
   display: block;
   padding: 18px 24px;
   background-color: #f7f7f7;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.24);
   color: #222;
   text-decoration: none;
+  border: 0;
   transition: background-color 0.2s ease;
+  font-weight: 600;
+}
+.convention_collective .convention-collective_section ul span a::before,
+.convention_collective .convention-collective_section ul li a::before {
+  content: "";
+  display: inline-block;
+  min-width: 20px;
+  height: 20px;
+  background-image: url("../images/icone-fichier.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateX(-10px) translateY(4px);
 }
 .convention_collective .convention-collective_section ul span a:hover,
 .convention_collective .convention-collective_section ul li a:hover {
