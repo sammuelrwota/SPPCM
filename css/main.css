@@ -57,7 +57,7 @@
   --titre-police: "Raleway", sans-serif;
   --titre-black: 900;
   --titre-gras: 700;
-  --titre1: clamp(20px, 5.97vw, 32px);
+  --titre1: clamp(24px, 2.2vw, 32px);
   --titre2: 22px;
   --titre3: 20px;
   --titre4: 16px;
