@@ -81,7 +81,7 @@
                 aria-controls="recherche-entete"
             >
                 <img
-                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/recherche.png'); ?>"
+                src="<?php echo esc_url(get_stylesheet_directory_uri() . '/images/recherche2.png'); ?>"
                 alt=""
             >
             </button>

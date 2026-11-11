@@ -58,25 +58,25 @@
   --titre-black: 900;
   --titre-gras: 700;
   --titre1: clamp(24px, 2.2vw, 32px);
-  --titre2: 22px;
-  --titre3: 20px;
-  --titre4: 16px;
-  --titre5: 12px;
-  --titre-interligne: 30px;
+  --titre2: clamp(22px, 2vw, 28px);
+  --titre3: clamp(20px, 1.7vw, 24px);
+  --titre4: clamp(16px, 1.3vw, 20px);
+  --titre5: clamp(12px, 1vw, 16px);
+  --titre-interligne: clamp(30px, 2vh, 36px);
 }
 
 /* ---------------Styles des polices de contenu-------------- */
 :root {
   --texte-police: "Geologica" , sans-serif;
   --texte1: clamp(18px, 1.5vw, 24px);
-  --texte2: clamp(16px, 1vw, 20px);
-  --texte3: 16px;
-  --texte4: 14px;
-  --texte5: 10px;
+  --texte2: clamp(16px, 1.7vw, 20px);
+  --texte3: clamp(16px, 1.3vw, 20px);
+  --texte4: clamp(14px, 1.1vw, 18px);
+  --texte5: clamp(10px, 0.7vw, 14px);
   --texte-gras: 700;
   --texte-regulier: 200;
-  --texte2-interligne: 20px;
-  --texte4-interligne: 18px;
+  --texte2-interligne: clamp(20px, 1.7vw, 24px);
+  --texte4-interligne: clamp(18px, 1.5vw, 24px);
 }
 
 /* --------------Styles du nav---------------- */
@@ -376,6 +376,12 @@ h2 {
   font-size: 0.95rem;
   opacity: 0;
   visibility: hidden;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.site-header .recherche-entete input::-webkit-search-cancel-button, .site-header .recherche-entete input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 .site-header .recherche-entete .fermer-recherche-entete {
   flex: 0 0 auto;
@@ -451,6 +457,12 @@ h2 {
   background: #fff;
   font: inherit;
   font-size: 0.875rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.panneau-recherche input::-webkit-search-cancel-button, .panneau-recherche input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .fermer-recherche {
@@ -550,11 +562,11 @@ body.recherche-ouverte {
     max-width: none;
     margin: 0;
     height: clamp(2.4rem, 4vw, 2.8rem);
-    padding: 0 clamp(0.9rem, 1.8vw, 2.5rem);
+    padding: 0 clamp(0.8rem, 1.2vw, 2.3rem);
     border-top: 3px solid #b00000;
     border-bottom: 3px solid #b00000;
     text-decoration: none;
-    font-size: var(--titre2);
+    font-size: var(--titre4);
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
@@ -614,6 +626,96 @@ body.recherche-ouverte {
   border: 0;
 }
 
+/* *** SOUS-MENU DESKTOP *** */
+@media (min-width: 768px) {
+  .site-header .main-navigation .menu-item-has-children > .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 250px;
+    min-width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    list-style: none;
+    gap: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+  }
+  .site-header .main-navigation .menu-item-has-children:hover > a,
+  .site-header .main-navigation .menu-item-has-children:focus-within > a {
+    background-color: #9E0000;
+    color: #fff;
+    border-left: 3px solid #9E0000;
+    border-radius: 1.5rem 0.25rem 0.25rem 0.25rem;
+  }
+  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
+  .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+    display: flex;
+  }
+  .site-header .main-navigation .menu-item-has-children > a::after {
+    content: "";
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    background: url("../images/fleche-bas.png") center/contain no-repeat;
+  }
+  .site-header .main-navigation .menu-item-has-children > a:hover::after,
+  .site-header .main-navigation .menu-item-has-children:hover > a::after,
+  .site-header .main-navigation .menu-item-has-children:focus-within > a::after {
+    background-image: url("../images/fleche-haut.png");
+  }
+  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
+  .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+    display: flex;
+  }
+  .site-header .main-navigation .sub-menu > .menu-item {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .site-header .main-navigation .sub-menu > .menu-item > a {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    color: #000;
+    background: transparent;
+    text-align: left;
+    text-transform: none;
+    white-space: normal;
+    font-weight: 400;
+  }
+  .site-header .main-navigation .sub-menu > .menu-item > a:hover,
+  .site-header .main-navigation .sub-menu > .menu-item > a:focus-visible {
+    background-color: transparent;
+    color: #000;
+    border-radius: 0;
+    border: none;
+  }
+  .site-header .main-navigation .sub-menu > .menu-item:last-child > a {
+    border-bottom: none;
+  }
+  .site-header .main-navigation .sub-menu a::after {
+    content: none;
+    display: none;
+  }
+}
 /**
  * main.scss — Point d'entrée principal de la compilation Sass.
  *
@@ -1055,7 +1157,6 @@ section {
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     gap: var(--gap-grid-desktop);
-    margin-bottom: 4rem;
   }
   .banniere .image-front {
     grid-column: 2/3;
@@ -1076,6 +1177,7 @@ section {
   }
   .banniere .infos-syndicat p {
     font-size: var(--titre3);
+    line-height: var(--titre-interligne);
   }
   .banniere .titre-principal {
     font-size: var(--titre1);
