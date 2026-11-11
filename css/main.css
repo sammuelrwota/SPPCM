@@ -58,25 +58,25 @@
   --titre-black: 900;
   --titre-gras: 700;
   --titre1: clamp(24px, 2.2vw, 32px);
-  --titre2: 22px;
-  --titre3: clamp(20px, 1.7vw, 28px);
-  --titre4: 16px;
-  --titre5: 12px;
-  --titre-interligne: 30px;
+  --titre2: clamp(22px, 2vw, 28px);
+  --titre3: clamp(20px, 1.7vw, 24px);
+  --titre4: clamp(16px, 1.3vw, 20px);
+  --titre5: clamp(12px, 1vw, 16px);
+  --titre-interligne: clamp(30px, 2vh, 36px);
 }
 
 /* ---------------Styles des polices de contenu-------------- */
 :root {
   --texte-police: "Geologica" , sans-serif;
   --texte1: clamp(18px, 1.5vw, 24px);
-  --texte2: clamp(16px, 1vw, 20px);
-  --texte3: 16px;
-  --texte4: 14px;
-  --texte5: 10px;
+  --texte2: clamp(16px, 1.7vw, 20px);
+  --texte3: clamp(16px, 1.3vw, 20px);
+  --texte4: clamp(14px, 1.1vw, 18px);
+  --texte5: clamp(10px, 0.7vw, 14px);
   --texte-gras: 700;
   --texte-regulier: 200;
-  --texte2-interligne: 20px;
-  --texte4-interligne: 18px;
+  --texte2-interligne: clamp(20px, 1.7vw, 24px);
+  --texte4-interligne: clamp(18px, 1.5vw, 24px);
 }
 
 /* --------------Styles du nav---------------- */
@@ -912,7 +912,7 @@ section {
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     gap: var(--gap-grid-desktop);
-    margin-bottom: 4rem;
+    margin-bottom: 30vh;
   }
   .banniere .image-front {
     grid-column: 2/3;
@@ -933,6 +933,7 @@ section {
   }
   .banniere .infos-syndicat p {
     font-size: var(--titre3);
+    line-height: var(--titre-interligne);
   }
   .banniere .titre-principal {
     font-size: var(--titre1);

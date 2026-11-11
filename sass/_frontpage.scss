@@ -134,7 +134,7 @@ section{
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     gap: var(--gap-grid-desktop);
-    margin-bottom: 4rem;
+    margin-bottom: 30vh;
     
     .image-front{
       grid-column: 2/3;
@@ -157,6 +157,7 @@ section{
         
         p{
           font-size: var(--titre3);
+          line-height: var(--titre-interligne);
         }
     }
 
