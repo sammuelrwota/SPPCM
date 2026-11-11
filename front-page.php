@@ -21,7 +21,6 @@ $images   = get_stylesheet_directory_uri() . '/images/';
     <section class="accueil-infolettres">
         <h2>Infolettres</h2>
 
-        <div class="infolettre">
             <?php
             $actualites = new WP_Query(array(
                 'category_name'  => 'actualite',
@@ -36,7 +35,7 @@ $images   = get_stylesheet_directory_uri() . '/images/';
                             <h3><?php the_title(); ?></h3>
 
                             <div class="infolettre-contenu">
-                                <p><?php the_excerpt(); ?></p>
+                                <p><?php the_excerpt(); ?></p>  
                             </div>
                         </div>
                     </div>
@@ -44,6 +43,9 @@ $images   = get_stylesheet_directory_uri() . '/images/';
             <?php }
             wp_reset_postdata(); ?>
         </div>
+        <a class="bouton bouton-voir-tout" href="<?php echo esc_url(home_url('/infolettre-accueil/')); ?>">
+            Toutes les infolettres
+        </a>
     </section>
 
     <section class="accueil-actualites">
@@ -78,6 +80,9 @@ $images   = get_stylesheet_directory_uri() . '/images/';
             <?php }
             wp_reset_postdata(); ?>
         </div>
+        <a class="bouton bouton-voir-tout" href="<?php echo esc_url(get_category_link(get_category_by_slug('actualite'))); ?>">
+            Toutes les actualités
+        </a>
     </section>
 </div>
 

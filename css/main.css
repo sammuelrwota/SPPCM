@@ -698,6 +698,57 @@ body.recherche-ouverte {
   align-items: center;
 }
 
+
+/* ----------------------bouton infolettres---------------------------*/
+.accueil-infolettres {
+  display: flex;
+  flex-direction: column;
+}
+
+.bouton-voir-tout {
+  display: flex;
+  width: fit-content;
+  margin: 1.5rem auto 0;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--bouton-hauteur);
+  padding: 0 2.5rem;
+  color: var(--couleur-texte-pale);
+  font-family: var(--titre-police);
+  font-weight: var(--titre-gras);
+  font-size: var(--titre3);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.bouton-voir-tout {
+  display: flex;
+  width: fit-content;
+  margin: 1.5rem auto 0;
+  /* ... le reste ... */
+}
+
+.bouton-voir-tout,
+.bouton-voir-tout:link,
+.bouton-voir-tout:visited,
+.bouton-voir-tout:hover,
+.bouton-voir-tout:focus,
+.bouton-voir-tout:active {
+  color: var(--couleur-texte-pale);
+}
+
+.bouton-voir-tout:hover,
+.bouton-voir-tout:focus-visible {
+  color: var(--couleur-texte-pale);
+}
+
+.bouton-voir-tout:focus-visible {
+  outline: 3px solid var(--couleur-texte-fonce);
+  outline-offset: 3px;
+}
+
+
+
+
 /**
  * main.scss — Point d'entrée principal de la compilation Sass.
  *
