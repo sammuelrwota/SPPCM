@@ -46,7 +46,7 @@ $images   = get_stylesheet_directory_uri() . '/images/';
         </div>
     </section>
 
-    <section class="accueil-actualites ombre">
+    <section class="accueil-actualites">
         <h2>Actualités</h2>
         <div class="article">
             <?php
@@ -58,7 +58,7 @@ $images   = get_stylesheet_directory_uri() . '/images/';
             while ($actualites->have_posts()) {
                 $actualites->the_post(); ?>
                 <a href="<?php the_permalink(); ?>">
-                    <div class="actualite-single">
+                    <div class="actualite-single ombre">
                         <?php
                         if (get_the_post_thumbnail() != null):
                         ?>
