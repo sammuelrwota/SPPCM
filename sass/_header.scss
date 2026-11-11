@@ -94,7 +94,7 @@
       width: 100%;
     }
 
-     a {
+    a {
       font-family: var(--titre-police);
       display: flex;
       align-items: center;
@@ -103,10 +103,10 @@
       margin: 2rem 0 2rem 9.5rem;
       color: var(--couleur-texte-fonce);
       text-decoration: none;
-      font-weight: 800;
+      font-weight: var(--texte-gras);
       letter-spacing: -0.03em;
       line-height: 1.15;
-      font-size: var(--titre1 );
+      font-size: var(--titre1);
 
       &:hover {
         color: var(--couleur-item-fonce);
@@ -155,7 +155,6 @@
     font-weight: 300;
     line-height: 1;
     cursor: pointer;
-    
   }
 
   .fermer-menu {
@@ -200,7 +199,6 @@
         max-width: 2.25rem;
       }
     }
-
 
     input {
       flex: 1;
@@ -332,7 +330,7 @@ body.recherche-ouverte {
     padding: 2vw 0.75vw 3vw 0.75vw;
     .entete {
       grid-template-columns: auto minmax(0, 1fr) auto;
-      gap: clamp(4rem, 7vw, 9rem);
+      gap: clamp(1.5rem, 3vw, 4.5rem);
     }
 
     .entete-logo {
@@ -371,7 +369,7 @@ body.recherche-ouverte {
         flex-direction: row;
         align-items: center;
         justify-content: flex-end;
-        gap: clamp(8rem, 13vw, 15rem);
+        gap: clamp(1rem, 2.5vw, 4rem);
         width: 100%;
         min-width: 0;
         max-width: 100%;
@@ -379,21 +377,56 @@ body.recherche-ouverte {
       }
 
       .menu-item {
-        flex: 0 1 auto;
-        width: auto;
+        flex: 1 1 auto;
         min-width: 0;
+        display: flex;
+        justify-content: center;
       }
 
       a {
+        position: relative;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
         width: auto;
-        max-width: 100%;
+        min-width: clamp(7.5rem, 10vw, 13rem);
+        max-width: min(100%, 16rem);
         margin: 0;
-        padding: 0;
+        height: clamp(2.4rem, 4vw, 2.8rem);
+        padding: 0 clamp(0.9rem, 1.8vw, 2.5rem);
+        border-top: 3px solid #b00000;
+        border-bottom: 3px solid #b00000;
+        text-decoration: none;
         font-size: var(--titre2);
-        line-height: 1.2;
+        text-align: center;
+        text-transform: uppercase;
         white-space: nowrap;
+        transition:
+          color 160ms ease,
+          background-color 160ms ease,
+          border-color 160ms ease;
+      }
+
+      a:is(.choisi, [aria-current="page"]),
+      a:is(:hover, :focus-visible):not(.choisi):not([aria-current="page"]) {
+        border-radius: 1.5rem 0.25rem 0.25rem 0.25rem;
+        color: #fff;
+      }
+
+      a:is(.choisi, [aria-current="page"]) {
+        border-color: #858585;
+        background: #858585;
+      }
+
+      a:is(:hover, :focus-visible):not(.choisi):not([aria-current="page"]) {
+        background: #b00000;
+      }
+
+        a:is(:hover, :focus-visible):not(.choisi):not(
+          [aria-current="page"]
+        )::after {
+        transform: rotate(180deg);
       }
 
       .menu-item-has-children > a::before,
