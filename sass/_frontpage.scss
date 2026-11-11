@@ -80,6 +80,12 @@ a{
   .infos-infolettre{
     h3{
       margin: 0 0 5px 0;
+      color: var(--couleur-item-fonce);
+    }
+    h3::after{
+      content: url(../images/fleche_diagonale.svg);
+      margin-left: 1vw;
+      filter: invert(7%) sepia(92%) saturate(6446%) hue-rotate(0deg) brightness(99%) contrast(108%);
     }
     p{
       margin: 0;
@@ -136,7 +142,6 @@ section{
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     gap: var(--gap-grid-desktop);
-    margin-bottom: 30vh;
     
     .image-front{
       grid-column: 2/3;
