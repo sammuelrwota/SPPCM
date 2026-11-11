@@ -43,6 +43,7 @@
   --marge-tablette: 65px;
   --marge-desktop: 150px;
   --largeur-icones: 24px;
+  --gap-grid-desktop: 20px ;
 }
 
 /*-------------Styles du texte------------------------------------*/
@@ -904,27 +905,49 @@ section {
 /* LAPTOP */
 @media (min-width: 1024px) {
   .banniere {
+    display: grid;
+    height: 50vh;
+    grid-template-columns: 7fr 5fr;
+    grid-template-rows: auto;
+    gap: var(--gap-grid-desktop);
+    margin-bottom: 4rem;
+  }
+  .banniere .image-front {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin: 0;
+    height: 100%;
+    object-fit: cover;
+  }
+  .banniere .infos-syndicat {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin: 0;
     display: flex;
-    flex-flow: row-reverse nowrap;
-    gap: 20px;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+  }
+  .banniere .infos-syndicat p {
+    font-size: var(--titre3);
   }
   .banniere .titre-principal {
     font-size: var(--titre1);
   }
-  .banniere .infos-syndicat {
-    width: 75%;
-  }
-  .banniere .infos-syndicat p {
-    font-size: var(--texte1);
-  }
   section {
-    margin: 20px var(--marge-desktop);
+    margin: 50px var(--marge-desktop);
   }
   .article {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-auto-rows: auto;
+    gap: var(--gap-grid-desktop);
+    margin-bottom: 4rem;
+  }
+  .actualite-single {
+    grid-row: 1/2;
+    height: 100%;
   }
 }
 .convention_collective {
@@ -962,16 +985,37 @@ section {
 .convention_collective .convention-collective_section ul li {
   font-family: var(--titre-police) !important;
 }
+.convention_collective .convention-collective_section ul span h3,
+.convention_collective .convention-collective_section ul li h3 {
+  border-bottom: 2px solid rgba(41, 41, 41, 0.175);
+}
 .convention_collective .convention-collective_section ul span a,
 .convention_collective .convention-collective_section ul li a {
   display: block;
   padding: 18px 24px;
   background-color: #f7f7f7;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.24);
   color: #222;
   text-decoration: none;
+  border: 0;
   transition: background-color 0.2s ease;
+  font-weight: 600;
+}
+.convention_collective .convention-collective_section ul span a::before,
+.convention_collective .convention-collective_section ul li a::before {
+  content: "";
+  display: inline-block;
+  min-width: 20px;
+  height: 20px;
+  background-image: url("../images/icone-fichier.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateX(-10px) translateY(4px);
 }
 .convention_collective .convention-collective_section ul span a:hover,
 .convention_collective .convention-collective_section ul li a:hover {
