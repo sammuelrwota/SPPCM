@@ -85,6 +85,13 @@ a{
   }
 }
 
+
+
+.bouton-voir-tout:hover,
+.bouton-voir-tout:focus-visible {
+    background-color: #ff0000;
+}
+
 .actualite-single{
   background: var(--degrade-couleur);
   color: var(--couleur-texte-pale);
