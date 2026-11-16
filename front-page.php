@@ -35,14 +35,14 @@ $images   = get_stylesheet_directory_uri() . '/images/';
                             <h3><?php the_title(); ?></h3>
 
                             <div class="infolettre-contenu">
-                                <p><?php the_excerpt(); ?></p>  
+                                <?php the_excerpt(); ?> 
                             </div>
                         </div>
                     </div>
                 </a>
             <?php }
             wp_reset_postdata(); ?>
-        </div>
+        
         <a class="bouton bouton-voir-tout" href="<?php echo esc_url(home_url('/infolettre-accueil/')); ?>">
             Toutes les infolettres
         </a>
