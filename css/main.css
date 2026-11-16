@@ -978,8 +978,16 @@ a {
   margin: 0;
 }
 
+.bouton-voir-tout {
+  display: inline-block ;
+  width: 150px;
+  height: 50px;
+}
+  
 .bouton-voir-tout:hover,
 .bouton-voir-tout:focus-visible {
+ 
+  
   background-color: #ff0000;
 }
 

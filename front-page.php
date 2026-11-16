@@ -8,7 +8,7 @@ $images   = get_stylesheet_directory_uri() . '/images/';
         Syndicat des professeures et professeurs de Maisonneuve
     </h1>
 
-    <div class="banniere">
+    <div class="banniere" style="border:1px solid green">
         <!-- IMAGE EN VEDETTE -->
         <img class="image-front ombre" src="<?php echo esc_url($images . 'image_accueil.jpg'); ?>" alt="">
 
@@ -18,7 +18,7 @@ $images   = get_stylesheet_directory_uri() . '/images/';
         </div>
     </div>
 
-    <section class="accueil-infolettres">
+    <section class="accueil-infolettres" style="border:1px solid red">
         <h2>Infolettres</h2>
 
             <?php
@@ -48,7 +48,7 @@ $images   = get_stylesheet_directory_uri() . '/images/';
         </a>
     </section>
 
-    <section class="accueil-actualites">
+    <section class="accueil-actualites" style="border:1px solid black">
         <h2>Actualités</h2>
         <div class="article">
             <?php
