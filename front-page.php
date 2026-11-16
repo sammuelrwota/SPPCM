@@ -29,17 +29,17 @@ $images   = get_stylesheet_directory_uri() . '/images/';
 
             while ($actualites->have_posts()) {
                 $actualites->the_post(); ?>
-                <a href="<?php the_permalink(); ?>">
+                
                     <div class="infolettre-single">
                         <div class="infos-infolettre">
-                            <h3><?php the_title(); ?></h3>
+                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
                             <div class="infolettre-contenu">
                                 <?php the_excerpt(); ?> 
                             </div>
                         </div>
                     </div>
-                </a>
+                
             <?php }
             wp_reset_postdata(); ?>
         
