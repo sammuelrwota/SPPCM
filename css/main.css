@@ -58,7 +58,7 @@
   --titre-black: 900;
   --titre-gras: 700;
   --titre1: clamp(24px, 2.2vw, 40px);
-  --titre2: clamp(22px, 2vw, 28px);
+  --titre2: clamp(24px, 2vw, 30px);
   --titre3: clamp(20px, 1.7vw, 24px);
   --titre4: clamp(16px, 1.3vw, 20px);
   --titre5: clamp(12px, 1vw, 16px);
@@ -700,10 +700,8 @@ body.recherche-ouverte {
     margin: 0;
     padding: 20px 8px;
     border: none;
-    border-bottom: 1px solid #ccc;
     border-radius: 0;
     color: #000;
-    background: transparent;
     text-align: left;
     text-transform: none;
     white-space: normal;
@@ -755,13 +753,6 @@ body.recherche-ouverte {
   min-height: 500px;
   padding: 40px 0;
   background-color: #D9D9D9;
-}
-.section_general h1 {
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  margin: 0 0 50px;
-  color: black;
 }
 .section_general .blocs {
   display: flex;
@@ -1168,7 +1159,7 @@ section {
   }
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /**
