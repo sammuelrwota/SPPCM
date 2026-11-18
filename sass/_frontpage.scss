@@ -78,6 +78,13 @@ a{
   .infos-infolettre{
     h3{
       margin: 0 0 5px 0;
+      
+      a{
+        color: var(--couleur-item-pale); 
+      }
+      a:hover{
+        color: var(--couleur-item-fonce);
+      }
     }
     p{
       margin: 0;
@@ -137,7 +144,6 @@ section{
 @media (min-width: 1024px) {
   .banniere{
     display: grid;
-    //height: 80vh;
     grid-template-columns: 7fr 5fr;
     grid-template-rows: 50vh;
     gap: var(--gap-grid-desktop);
@@ -146,7 +152,7 @@ section{
       grid-column: 2/3;
       grid-row: 1/2;
       margin: 0;
-      //height: 100%;
+      height: 100%;
       object-fit: cover;
     }
     
