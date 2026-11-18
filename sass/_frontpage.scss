@@ -145,7 +145,7 @@ section{
   .banniere{
     display: grid;
     grid-template-columns: 7fr 5fr;
-    grid-template-rows: 50vh;
+    grid-template-rows: auto;
     gap: var(--gap-grid-desktop);
     
     .image-front{
@@ -166,6 +166,11 @@ section{
         justify-content: center;
         align-items: center;
         padding: 2.5vw 7.5vw;
+
+        h1{
+          color: var(--couleur-texte-pale);
+          // line-height: var(--titre-interligne);
+        }
         
         p{
           font-size: var(--titre3);
@@ -194,4 +199,8 @@ section{
   height: 100%;
  }
 
+}
+
+.hidden{
+  display: none;
 }
