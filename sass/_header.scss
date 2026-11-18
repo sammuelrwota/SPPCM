@@ -77,9 +77,9 @@
     scrollbar-width: none;
     transform: translateY(-0.75rem);
     transition:
-      opacity 180ms ease,
-      transform 180ms ease,
-      visibility 180ms;
+      opacity 250ms ease,
+      transform 250ms ease,
+      visibility 250ms;
 
     .menu {
       display: flex;
@@ -433,9 +433,10 @@ body.recherche-ouverte {
         text-transform: uppercase;
         white-space: nowrap;
         transition:
-          color 160ms ease,
-          background-color 160ms ease,
-          border-color 160ms ease;
+          color 250ms ease,
+          background-color 250ms ease,
+          border-color 250ms ease,
+          border-radius 250ms ease;
       }
 
       a:is(.choisi, [aria-current="page"]),
@@ -451,12 +452,6 @@ body.recherche-ouverte {
 
       a:is(:hover, :focus-visible):not(.choisi):not([aria-current="page"]) {
         background: #b00000;
-      }
-
-        a:is(:hover, :focus-visible):not(.choisi):not(
-          [aria-current="page"]
-        )::after {
-        transform: rotate(180deg);
       }
 
       .menu-item-has-children > a::before,
@@ -547,13 +542,21 @@ body.recherche-ouverte {
     width: 2rem;
     height: 2rem;
     background: url("../images/fleche-bas.png") center / contain no-repeat;
-}
+    transform: none;
+    rotate: 0deg;
+    transform-origin: center;
+    filter: none;
+    transition:
+      rotate 250ms ease,
+      filter 250ms ease;
+  }
 
-.site-header .main-navigation .menu-item-has-children > a:hover::after,
-.site-header .main-navigation .menu-item-has-children:hover > a::after,
-.site-header .main-navigation .menu-item-has-children:focus-within > a::after {
-    background-image: url("../images/fleche-haut.png");
-}
+  .site-header .main-navigation .menu-item-has-children > a:hover::after,
+  .site-header .main-navigation .menu-item-has-children:hover > a::after,
+  .site-header .main-navigation .menu-item-has-children:focus-within > a::after {
+    rotate: 180deg;
+    filter: brightness(0) invert(1);
+  }
 
   .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
   .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {

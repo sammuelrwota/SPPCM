@@ -14,13 +14,13 @@
 
 /* ------------Styles généraux-------------- */
 :root{
-  --corner-radius: 20px;
-  --corner-radius-interne: 14px;
-  --marge-mobile: 15px;
-  --marge-tablette: 65px;
+  --corner-radius: 1.25rem;
+  --corner-radius-interne: 0.875rem;
+  --marge-mobile: 0.938rem;
+  --marge-tablette: 4.063rem;
   --marge-desktop: clamp(150px, 10vw, 300px);
-  --largeur-icones: 24px;
-  --gap-grid-desktop: 20px;
+  --largeur-icones: 1.5rem;
+  --gap-grid-desktop: 1.25rem;
 }
 
 /*-------------Styles du texte------------------------------------*/
@@ -61,8 +61,8 @@
   --nav-couleur-icone: rgba(0, 0, 0, 1);
   --nav-couleur-bouton: rgba(158, 0, 0, 1);
   --nav-couleur-bouton-choisi: rgba(128, 128, 128, 1);
-  --nav-bouton-grande-courbe: 15px;
-  --nav-bouton-petite-courbe: 2px;
+  --nav-bouton-grande-courbe: 0.938rem;
+  --nav-bouton-petite-courbe: 0.125rem;
 }
 
 /*----------------Styles du footer--------------------------*/
@@ -75,19 +75,19 @@
 /*--------------Styles des ombres------------------------*/
 :root{
   --ombre-couleur: rgba(135, 124, 124, 1);
-  --ombre-position-x: 0px;
-  --ombre-position-y: 3px;
-  --ombre-flou: 6px;
+  --ombre-position-x: 0rem;
+  --ombre-position-y: 0.188rem;
+  --ombre-flou: 0.375rem;
 }
 
 /*------------------Style des boutons------------------ */
 :root {
     --bouton-couleur: #FF0000;
     --bouton-couleur-hover: #9E0000;
-    --bouton-largeur: 116px;
-    --bouton-hauteur: 46px;
+    --bouton-largeur: 7.25rem;
+    --bouton-hauteur: 2.875rem;
     --bouton-ombre: drop-shadow(0 3px 6px #877C7C);
-    --bouton-radius: 31px 31px 31px 31px;
+    --bouton-radius: 1.938rem 1.938rem 1.938rem 1.938rem;
 }
  
 .bouton {
@@ -104,11 +104,11 @@
  
 /*------------------Style de la forme générale------------------ */
 :root {
-    --forme-radius: 31px 1px 31px 1px;
+    --forme-radius: 1.938rem  0.063rem 1.938rem 0.063rem;
     --forme-couleur: #0400ff;/*juste un exemple*/
     --forme-ombre: drop-shadow(0 3px 6px #877C7C);
-    --forme-largeur: 330px;
-    --forme-hauteur: 50px;
+    --forme-largeur: 20.625rem;
+    --forme-hauteur: 3.125rem;
 }
 
 .forme_generale{
