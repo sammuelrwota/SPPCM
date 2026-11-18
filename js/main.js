@@ -77,11 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const boutonRecherche = document.querySelector(".bouton-recherche");
   const boutonFermer = document.querySelector(".fermer-recherche-entete");
   const champRecherche = document.querySelector("#champ-recherche-entete");
-  const superpositionRecherche = document.querySelector("#superposition-recherche");
+  const superpositionRecherche = document.querySelector(
+    "#superposition-recherche",
+  );
   const fondRecherche = document.querySelector(".fond-recherche");
   const panneauRecherche = document.querySelector(".panneau-recherche");
   const champRechercheOverlay = document.querySelector("#champ-recherche");
-  const boutonFermerRechercheOverlay = document.querySelector(".fermer-recherche");
+  const boutonFermerRechercheOverlay =
+    document.querySelector(".fermer-recherche");
 
   if (!menuNavigation || !boutonMenu || !boutonFermerMenu) {
     return;
@@ -134,16 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //   lien.addEventListener("click", fermerMenu);
   // });
-  
+
   menuNavigation.querySelectorAll("a").forEach((lien) => {
-
     lien.addEventListener("click", () => {
-        if (!lien.closest(".menu-item-has-children")) {
-            fermerMenu();
-        }
+      if (!lien.closest(".menu-item-has-children")) {
+        fermerMenu();
+      }
     });
-
-});
+  });
 
   if (!formulaire || !boutonRecherche || !boutonFermer || !champRecherche) {
     return;
@@ -207,7 +208,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   fondRecherche?.addEventListener("click", () => basculerRecherche(false));
-  boutonFermerRechercheOverlay?.addEventListener("click", () => basculerRecherche(false));
+  boutonFermerRechercheOverlay?.addEventListener("click", () =>
+    basculerRecherche(false),
+  );
   panneauRecherche?.addEventListener("submit", (event) => {
     if (!champRechercheOverlay?.value.trim()) {
       event.preventDefault();
@@ -215,3 +218,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+//Changer la position du titre selon la largeur de l'écran
+console.log("Allo");
+
+const titreMobile = document.getElementById("mobile-titre");
+const titreDesktop = document.getElementById("desktop-titre");
+
+if (titreDesktop && titreMobile) {
+  titreDesktop.addEventListener("click", function () {
+    console.log("desktop");
+  });
+
+  function gererAffichageTitre() {
+    if (window.innerWidth >= 1024) {
+      titreDesktop.classList.remove("hidden");
+      titreMobile.classList.add("hidden");
+    } else {
+      titreDesktop.classList.add("hidden");
+      titreMobile.classList.remove("hidden");
+    }
+  }
+
+  // Exécuter au chargement et à chaque redimensionnement
+  gererAffichageTitre();
+  window.addEventListener("resize", gererAffichageTitre);
+}

@@ -78,6 +78,13 @@ a{
   .infos-infolettre{
     h3{
       margin: 0 0 5px 0;
+      
+      a{
+        color: var(--couleur-item-pale); 
+      }
+      a:hover{
+        color: var(--couleur-item-fonce);
+      }
     }
     p{
       margin: 0;
@@ -137,7 +144,6 @@ section{
 @media (min-width: 1024px) {
   .banniere{
     display: grid;
-    height: 50vh;
     grid-template-columns: 7fr 5fr;
     grid-template-rows: auto;
     gap: var(--gap-grid-desktop);
@@ -160,6 +166,11 @@ section{
         justify-content: center;
         align-items: center;
         padding: 2.5vw 7.5vw;
+
+        h1{
+          color: var(--couleur-texte-pale);
+          // line-height: var(--titre-interligne);
+        }
         
         p{
           font-size: var(--titre3);
@@ -188,4 +199,8 @@ section{
   height: 100%;
  }
 
+}
+
+.hidden{
+  display: none !important;
 }

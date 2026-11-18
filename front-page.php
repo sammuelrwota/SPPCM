@@ -4,7 +4,7 @@ get_header();
 $images   = get_stylesheet_directory_uri() . '/images/';
 ?>
 <div class="page-accueil">
-    <h1 class="titre-principal">
+    <h1 class="titre-principal" id="mobile-titre">
         Syndicat des professeures et professeurs de Maisonneuve
     </h1>
 
@@ -13,6 +13,9 @@ $images   = get_stylesheet_directory_uri() . '/images/';
         <img class="image-front ombre" src="<?php echo esc_url($images . 'image_accueil.jpg'); ?>" alt="">
 
         <div class="infos-syndicat ombre">
+            <h1 class="titre-principal" id="desktop-titre">
+                Syndicat des professeures et professeurs de Maisonneuve
+            </h1>
             <p>Le syndicat des professeures et professeurs du Collège de Maisonneuve (SPPCM) a pour objectifs l’étude, la défense et la promotion des intérêts et des objectifs professionnels, syndicaux, économiques et sociaux de ses membres. Il vise également la promotion de la recherche et de la qualité du travail en éducation.</p>
             <p>Le SPPCM regroupe plus de 630 membres. Fondé le 7 mars 1968, il est affilié à la fédération nationale des enseignantes et enseignants du Québec (FNEEQ), elle-même membre (ou filiale) de la Confédération des syndicats nationaux (CSN).</p>
         </div>
@@ -21,28 +24,28 @@ $images   = get_stylesheet_directory_uri() . '/images/';
     <section class="accueil-infolettres">
         <h2>Infolettres</h2>
 
-            <?php
-            $actualites = new WP_Query(array(
-                'category_name'  => 'actualite',
-                'posts_per_page' => 3,
-            ));
+        <?php
+        $actualites = new WP_Query(array(
+            'category_name'  => 'actualite',
+            'posts_per_page' => 3,
+        ));
 
-            while ($actualites->have_posts()) {
-                $actualites->the_post(); ?>
-                <a href="<?php the_permalink(); ?>">
-                    <div class="infolettre-single">
-                        <div class="infos-infolettre">
-                            <h3><?php the_title(); ?></h3>
+        while ($actualites->have_posts()) {
+            $actualites->the_post(); ?>
 
-                            <div class="infolettre-contenu">
-                                <p><?php the_excerpt(); ?></p>  
-                            </div>
-                        </div>
+            <div class="infolettre-single">
+                <div class="infos-infolettre">
+                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+
+                    <div class="infolettre-contenu">
+                        <?php the_excerpt(); ?>
                     </div>
-                </a>
-            <?php }
-            wp_reset_postdata(); ?>
-        </div>
+                </div>
+            </div>
+
+        <?php }
+        wp_reset_postdata(); ?>
+
         <a class="bouton bouton-voir-tout" href="<?php echo esc_url(home_url('/infolettre-accueil/')); ?>">
             Toutes les infolettres
         </a>
