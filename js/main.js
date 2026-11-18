@@ -222,17 +222,25 @@ document.addEventListener("DOMContentLoaded", () => {
 //Changer la position du titre selon la largeur de l'écran
 console.log("Allo");
 
-let titreMobile = document.getElementById("mobile-titre");
-let titreDesktop = document.getElementById("desktop-titre");
+const titreMobile = document.getElementById("mobile-titre");
+const titreDesktop = document.getElementById("desktop-titre");
 
-titreMobile.addEventListener("click", function () {
-  console.log("mobile");
-});
+if (titreDesktop && titreMobile) {
+  titreDesktop.addEventListener("click", function () {
+    console.log("desktop");
+  });
 
-if (screen.width >= 1024) {
-  titreDesktop.classList.remove("hidden");
-  titreMobile.classList.add("hidden");
-} else {
-  titreDesktop.classList.add("hidden");
-  titreMobile.classList.remove("hidden");
+  function gererAffichageTitre() {
+    if (window.innerWidth >= 1024) {
+      titreDesktop.classList.remove("hidden");
+      titreMobile.classList.add("hidden");
+    } else {
+      titreDesktop.classList.add("hidden");
+      titreMobile.classList.remove("hidden");
+    }
+  }
+
+  // Exécuter au chargement et à chaque redimensionnement
+  gererAffichageTitre();
+  window.addEventListener("resize", gererAffichageTitre);
 }

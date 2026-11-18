@@ -13,7 +13,7 @@ $images   = get_stylesheet_directory_uri() . '/images/';
         <img class="image-front ombre" src="<?php echo esc_url($images . 'image_accueil.jpg'); ?>" alt="">
 
         <div class="infos-syndicat ombre">
-            <h1 class="titre-principal hidden" id="desktop-titre">
+            <h1 class="titre-principal" id="desktop-titre">
                 Syndicat des professeures et professeurs de Maisonneuve
             </h1>
             <p>Le syndicat des professeures et professeurs du Collège de Maisonneuve (SPPCM) a pour objectifs l’étude, la défense et la promotion des intérêts et des objectifs professionnels, syndicaux, économiques et sociaux de ses membres. Il vise également la promotion de la recherche et de la qualité du travail en éducation.</p>
