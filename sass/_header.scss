@@ -540,21 +540,25 @@ body.recherche-ouverte {
   display: flex;
 }
 
+/* Flèche par défaut : vers le bas */
 .site-header .main-navigation .menu-item-has-children > a::after {
     content: "";
     display: inline-block;
     flex: 0 0 auto;
     width: 2rem;
     height: 2rem;
+
     background: url("../images/fleche-bas.png") center / contain no-repeat;
+
+    transform: rotate(0deg);
+    transition: transform 0.4s ease-in-out;
 }
 
-.site-header .main-navigation .menu-item-has-children > a:hover::after,
+/* Flèche animée : vers le haut */
 .site-header .main-navigation .menu-item-has-children:hover > a::after,
 .site-header .main-navigation .menu-item-has-children:focus-within > a::after {
-    background-image: url("../images/fleche-haut.png");
+    transform: rotate(180deg);
 }
-
   .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
   .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
     display: flex;
@@ -578,11 +582,11 @@ body.recherche-ouverte {
     box-sizing: border-box;
     margin: 0;
     padding: 20px 8px;
-    border: none;
+   border: none;
     // border-bottom: 1px solid #ccc;
     border-radius: 0;
     color: #000;
-    // background: transparent;
+    background: transparent;
     text-align: left;
     text-transform: none;
     white-space: normal;
@@ -591,7 +595,7 @@ body.recherche-ouverte {
 
 .site-header .main-navigation .sub-menu > .menu-item > a:hover,
 .site-header .main-navigation .sub-menu > .menu-item > a:focus-visible {
-  background-color: transparent;
+  background-color: rgb(211, 211, 211);
   color: #000;
   border-radius: 0;
   border: none;

@@ -665,6 +665,7 @@ body.recherche-ouverte {
   .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
     display: flex;
   }
+  /* Flèche par défaut : vers le bas */
   .site-header .main-navigation .menu-item-has-children > a::after {
     content: "";
     display: inline-block;
@@ -672,11 +673,13 @@ body.recherche-ouverte {
     width: 2rem;
     height: 2rem;
     background: url("../images/fleche-bas.png") center/contain no-repeat;
+    transform: rotate(0deg);
+    transition: transform 0.4s ease-in-out;
   }
-  .site-header .main-navigation .menu-item-has-children > a:hover::after,
+  /* Flèche animée : vers le haut */
   .site-header .main-navigation .menu-item-has-children:hover > a::after,
   .site-header .main-navigation .menu-item-has-children:focus-within > a::after {
-    background-image: url("../images/fleche-haut.png");
+    transform: rotate(180deg);
   }
   .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
   .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
@@ -700,7 +703,6 @@ body.recherche-ouverte {
     margin: 0;
     padding: 20px 8px;
     border: none;
-    border-bottom: 1px solid #ccc;
     border-radius: 0;
     color: #000;
     background: transparent;
@@ -711,7 +713,7 @@ body.recherche-ouverte {
   }
   .site-header .main-navigation .sub-menu > .menu-item > a:hover,
   .site-header .main-navigation .sub-menu > .menu-item > a:focus-visible {
-    background-color: transparent;
+    background-color: rgb(211, 211, 211);
     color: #000;
     border-radius: 0;
     border: none;
@@ -755,13 +757,6 @@ body.recherche-ouverte {
   min-height: 500px;
   padding: 40px 0;
   background-color: #D9D9D9;
-}
-.section_general h1 {
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  margin: 0 0 50px;
-  color: black;
 }
 .section_general .blocs {
   display: flex;
@@ -1168,7 +1163,7 @@ section {
   }
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /**
@@ -1269,4 +1264,6 @@ section {
 .convention_collective .convention-collective_section ul li a:focus-visible {
   outline: 2px solid #222;
   outline-offset: 3px;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
