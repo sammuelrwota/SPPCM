@@ -122,29 +122,49 @@ document.addEventListener("DOMContentLoaded", () => {
     boutonMenu.focus();
   });
 
-  // menuNavigation.querySelectorAll("a").forEach((lien) => {
-  //   const itemParent = lien.closest(".menu-item-has-children, .page_item_has_children");
+  menuNavigation.addEventListener("click", (event) => {
+    const lien = event.target.closest("a");
+    if (!lien) return;
 
-  //   if (itemParent) {
-  //     lien.setAttribute("href", "#");
-  //     lien.setAttribute("aria-disabled", "true");
-  //     lien.addEventListener("click", (event) => {
-  //       event.preventDefault();
-  //       event.stopPropagation();
-  //     });
-  //     return;
-  //   }
+    const itemParent = lien.closest(".menu-item-has-children, .page_item_has_children");
 
-  //   lien.addEventListener("click", fermerMenu);
-  // });
+    if (itemParent && lien.parentElement === itemParent) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
 
-  menuNavigation.querySelectorAll("a").forEach((lien) => {
-    lien.addEventListener("click", () => {
-      if (!lien.closest(".menu-item-has-children")) {
-        fermerMenu();
+      if (!requeteEcranLarge.matches) {
+        const sousMenu = itemParent.querySelector(":scope > .sub-menu");
+        const vaOuvrir = !itemParent.classList.contains("sous-menu-ouvert");
+
+        menuNavigation.querySelectorAll(".menu-item-has-children.sous-menu-ouvert, .page_item_has_children.sous-menu-ouvert").forEach((item) => {
+          if (item !== itemParent) {
+            item.classList.remove("sous-menu-ouvert");
+            item.querySelector(":scope > .sub-menu")?.classList.remove("ouvert");
+            item.querySelector(":scope > a")?.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        itemParent.classList.toggle("sous-menu-ouvert", vaOuvrir);
+        sousMenu?.classList.toggle("ouvert", vaOuvrir);
+        lien.setAttribute("aria-expanded", String(vaOuvrir));
       }
+      return;
+    }
+
+    if (!lien.closest(".sub-menu")) {
+      fermerMenu();
+    }
+  }, true);
+
+  menuNavigation
+    .querySelectorAll(".menu-item-has-children > a, .page_item_has_children > a")
+    .forEach((lien) => {
+      lien.removeAttribute("href");
+      lien.setAttribute("role", "button");
+      lien.setAttribute("tabindex", "0");
+      lien.setAttribute("aria-haspopup", "true");
+      lien.setAttribute("aria-disabled", "true");
     });
-  });
 
   if (!formulaire || !boutonRecherche || !boutonFermer || !champRecherche) {
     return;
