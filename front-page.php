@@ -87,6 +87,76 @@ $images   = get_stylesheet_directory_uri() . '/images/';
             Toutes les actualités
         </a>
     </section>
+    <section>
+        <h2>Vie syndicale</h2>
+        <div class="comite">
+            <?php
+            $comites = new WP_Query(array(
+                'post_type'      => 'comite',
+                'post_status'    => 'publish',
+                'posts_per_page' => -1,
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+            ));
+
+            while ($comites->have_posts()) {
+                $comites->the_post();
+                $nom_comite         = get_post_meta(get_the_ID(), 'nom_comite', true);
+                $responsable_comite = get_post_meta(get_the_ID(), 'responsable_comite', true);
+                $email_comite       = get_post_meta(get_the_ID(), 'email_comite', true);
+                $point_1_comite        = get_post_meta(get_the_ID(), 'point_1_comite', true);
+                $point_2_comite        = get_post_meta(get_the_ID(), 'point_2_comite', true);
+                $point_3_comite        = get_post_meta(get_the_ID(), 'point_3_comite', true);
+                $point_4_comite        = get_post_meta(get_the_ID(), 'point_4_comite', true);
+                $point_5_comite        = get_post_meta(get_the_ID(), 'point_5_comite', true);
+            ?>
+                <article class="comite-single">
+                    <?php if ($nom_comite !== '') : ?>
+                        <h1><?php echo esc_html($nom_comite); ?></h1>
+                    <?php endif; ?>
+
+                    <?php if ($responsable_comite !== '') : ?>
+                        <p><?php echo esc_html($responsable_comite); ?></p>
+                    <?php endif; ?>
+
+                    <?php if ($email_comite !== '') : ?>
+                        <p><?php echo esc_html($email_comite); ?></p>
+                    <?php endif; ?>
+
+                    <?php if ($point_1_comite !== '') : ?>
+                        <p class="comite-description">
+                            <?php echo esc_html($point_1_comite); ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if ($point_2_comite !== '') : ?>
+                        <p class="comite-description">
+                            <?php echo esc_html($point_2_comite); ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if ($point_3_comite !== '') : ?>
+                        <p class="comite-description">
+                            <?php echo esc_html($point_3_comite); ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if ($point_4_comite !== '') : ?>
+                        <p class="comite-description">
+                            <?php echo esc_html($point_4_comite); ?>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if ($point_5_comite !== '') : ?>
+                        <p class="comite-description">
+                            <?php echo esc_html($point_5_comite); ?>
+                        </p>
+                    <?php endif; ?>
+                </article>
+            <?php }
+            wp_reset_postdata(); ?>
+        </div>
+    </section>
 </div>
 
 <?php

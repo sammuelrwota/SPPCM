@@ -132,6 +132,10 @@ section{
   margin: 40px 0;
 }
 
+.comite-description::before{
+  content: "➤";
+}
+
 /* TABLETTE */
 @media (min-width: 768px) {
 
@@ -169,7 +173,7 @@ section{
 
         h1{
           color: var(--couleur-texte-pale);
-          // line-height: var(--titre-interligne);
+          text-align: left;
         }
         
         p{
