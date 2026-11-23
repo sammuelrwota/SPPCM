@@ -26,7 +26,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-
+       
         ul {
             display: flex; 
             flex-direction: column;
@@ -45,7 +45,7 @@
                 h3 {
                     border-bottom: 2px solid rgba(41, 41, 41, 0.175);
                 }
-
+               
                 a {
                     display: block;
                     padding: 18px 24px;
@@ -61,16 +61,7 @@
                     transition: background-color 0.2s ease;
                     font-weight: 600;
 
-
-                    &::before {
-                        content: "";
-                        display: inline-block;
-                        min-width: 20px;
-                        height: 20px;
-                        background-image: url('../images/icone-fichier.png');
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        background-position: center;
+                    img {
                         transform: translateX(-10px) translateY(4px);
                     }
                 
@@ -89,5 +80,3 @@
         }
     }
 }
-
-
