@@ -39,7 +39,7 @@
 :root {
   --corner-radius: 1.25rem;
   --corner-radius-interne: 0.875rem;
-  --marge-mobile: 1rem;
+  --marge-mobile: 0.938rem;
   --marge-tablette: 4.063rem;
   --marge-desktop: clamp(150px, 10vw, 300px);
   --largeur-icones: 1.5rem;
@@ -292,13 +292,13 @@ h2 {
 }
 .site-header .main-navigation .menu-item-has-children > a::after,
 .site-header .main-navigation .page_item_has_children > a::after {
-  content: "▼";
+  content: "";
   display: inline-block;
+  background: url("../images/chevron-up2.png") center/contain no-repeat;
   flex: 0 0 auto;
-  width: auto;
-  height: auto;
+  width: 2rem;
+  height: 2rem;
   margin: 0;
-  background: none;
   color: #111;
   font-size: 0.9em;
   transform: translateY(-0.08em);
@@ -631,35 +631,33 @@ body.recherche-ouverte {
   border: 0;
 }
 
+.site-header .main-navigation .menu-item-has-children > .sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0 10px;
+  list-style: none;
+  gap: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+}
+
 /* *** SOUS-MENU DESKTOP *** */
 @media (min-width: 768px) {
-  .site-header .main-navigation .menu-item-has-children > .sub-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    width: 250px;
-    min-width: 100%;
-    margin: 0;
-    padding: 0 10px;
-    list-style: none;
-    gap: 0;
-    background-color: #fff;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
-  }
-  .site-header .main-navigation .menu-item-has-children:hover > a,
-  .site-header .main-navigation .menu-item-has-children:focus-within > a {
+  .site-header .main-navigation .menu-item-has-children:hover > a {
     background-color: #9E0000;
     color: #fff;
-    border-left: 3px solid #9E0000;
     border-radius: 1.5rem 0.25rem 0.25rem 0.25rem;
   }
-  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
-  .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu {
     display: flex;
   }
   .site-header .main-navigation .menu-item-has-children > a::after {
@@ -668,7 +666,7 @@ body.recherche-ouverte {
     flex: 0 0 auto;
     width: 2rem;
     height: 2rem;
-    background: url("../images/fleche-bas.png") center/contain no-repeat;
+    background: url("../images/chevron-up2.png") center/contain no-repeat;
     transform: none;
     rotate: 0deg;
     transform-origin: center;
@@ -676,13 +674,11 @@ body.recherche-ouverte {
     transition: rotate 250ms ease, filter 250ms ease;
   }
   .site-header .main-navigation .menu-item-has-children > a:hover::after,
-  .site-header .main-navigation .menu-item-has-children:hover > a::after,
-  .site-header .main-navigation .menu-item-has-children:focus-within > a::after {
+  .site-header .main-navigation .menu-item-has-children:hover > a::after {
     rotate: 180deg;
     filter: brightness(0) invert(1);
   }
-  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
-  .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu {
     display: flex;
   }
   .site-header .main-navigation .sub-menu > .menu-item {
@@ -723,6 +719,16 @@ body.recherche-ouverte {
   .site-header .main-navigation .sub-menu a::after {
     content: none;
     display: none;
+  }
+}
+@media (max-width: 767px) {
+  .site-header .main-navigation .menu-item-has-children > .sub-menu,
+  .site-header .main-navigation .page_item_has_children > .sub-menu {
+    display: none;
+  }
+  .site-header .main-navigation .menu-item-has-children.sous-menu-ouvert > .sub-menu,
+  .site-header .main-navigation .page_item_has_children.sous-menu-ouvert > .sub-menu {
+    display: flex;
   }
 }
 /**
@@ -1105,10 +1111,6 @@ section {
   margin: 40px 0;
 }
 
-.comite-description::before {
-  content: "➤";
-}
-
 /* TABLETTE */
 @media (min-width: 768px) {
   section {
@@ -1142,7 +1144,6 @@ section {
   }
   .banniere .infos-syndicat h1 {
     color: var(--couleur-texte-pale);
-    text-align: left;
   }
   .banniere .infos-syndicat p {
     font-size: var(--titre3);
@@ -1248,16 +1249,8 @@ section {
   transition: background-color 0.2s ease;
   font-weight: 600;
 }
-.convention_collective .convention-collective_section ul span a::before,
-.convention_collective .convention-collective_section ul li a::before {
-  content: "";
-  display: inline-block;
-  min-width: 20px;
-  height: 20px;
-  background-image: url("../images/icone-fichier.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.convention_collective .convention-collective_section ul span a img,
+.convention_collective .convention-collective_section ul li a img {
   transform: translateX(-10px) translateY(4px);
 }
 .convention_collective .convention-collective_section ul span a:hover,
@@ -1268,4 +1261,39 @@ section {
 .convention_collective .convention-collective_section ul li a:focus-visible {
   outline: 2px solid #222;
   outline-offset: 3px;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/**
+ * main.scss — Point d'entrée principal de la compilation Sass.
+ *
+ * C'est ici que les partiels .scss doivent être importés — jamais directement dans un
+ * template PHP ou ailleurs. Ce fichier ne doit contenir aucun style lui-même,
+ * uniquement des imports.
+ *
+ * Utiliser @use (pas @import, qui est déprécié) :
+ *   @use 'chemin/vers/nom-du-fichier';
+ *   → le fichier réel doit s'appeler _nom-du-fichier.scss (underscore au début, sans
+ *     l'extension ni le underscore dans l'import)
+ *
+ * Organisez votre dossier sass/ selon une structure qui répond aux besoins de votre
+ * projet. L'objectif est d'avoir une organisation claire et cohérente plutôt que 
+ * d'accumuler tous les fichiers .scss dans un seul dossier.
+ *
+ * L'ordre des imports ci-dessous a de l'importance : Sass (comme le CSS) applique les
+ * styles dans l'ordre où ils sont déclarés. En cas de conflit de spécificité égale,
+ * le dernier import gagne. Respecter l'ordre base → layout → components → pages.
+ *
+ * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
+ * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
+ */
+.avantages_sociaux h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+.avantages_sociaux h3 {
+  border-bottom: 2px solid rgba(41, 41, 41, 0.175);
+}
+
+/*# sourceMappingURL=main.css.map */
