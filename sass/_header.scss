@@ -117,13 +117,13 @@
 
     .menu-item-has-children > a::after,
     .page_item_has_children > a::after {
-      content: "▼";
+      content: "";
       display: inline-block;
+      background: url("../images/chevron-up2.png") center / contain no-repeat;
       flex: 0 0 auto;
-      width: auto;
-      height: auto;
+      width: 2rem;
+      height: 2rem;
       margin: 0;
-      background: none;
       color: #111;
       font-size: 0.9em;
       transform: translateY(-0.08em);
@@ -500,10 +500,7 @@ body.recherche-ouverte {
   border: 0;
 }
 
-
-/* *** SOUS-MENU DESKTOP *** */
-@media (min-width: 768px) {
-  .site-header .main-navigation .menu-item-has-children > .sub-menu {
+.site-header .main-navigation .menu-item-has-children > .sub-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -521,17 +518,17 @@ body.recherche-ouverte {
     background-color: #fff;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
   }
+/* *** SOUS-MENU DESKTOP *** */
+@media (min-width: 768px) {
+  
 
-.site-header .main-navigation .menu-item-has-children:hover > a,
-.site-header .main-navigation .menu-item-has-children:focus-within > a {
+.site-header .main-navigation .menu-item-has-children:hover > a {
   background-color: #9E0000;
   color: #fff;
-  border-left: 3px solid #9E0000;
   border-radius: 1.5rem 0.25rem 0.25rem 0.25rem;
 }
 
-.site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
-.site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+.site-header .main-navigation .menu-item-has-children:hover > .sub-menu {
   display: flex;
 }
 
@@ -541,7 +538,7 @@ body.recherche-ouverte {
     flex: 0 0 auto;
     width: 2rem;
     height: 2rem;
-    background: url("../images/fleche-bas.png") center / contain no-repeat;
+    background: url("../images/chevron-up2.png") center / contain no-repeat;
     transform: none;
     rotate: 0deg;
     transform-origin: center;
@@ -552,14 +549,12 @@ body.recherche-ouverte {
   }
 
   .site-header .main-navigation .menu-item-has-children > a:hover::after,
-  .site-header .main-navigation .menu-item-has-children:hover > a::after,
-  .site-header .main-navigation .menu-item-has-children:focus-within > a::after {
+  .site-header .main-navigation .menu-item-has-children:hover > a::after {
     rotate: 180deg;
     filter: brightness(0) invert(1);
   }
 
-  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu,
-  .site-header .main-navigation .menu-item-has-children:focus-within > .sub-menu {
+  .site-header .main-navigation .menu-item-has-children:hover > .sub-menu {
     display: flex;
   }
 
@@ -607,6 +602,18 @@ body.recherche-ouverte {
   .site-header .main-navigation .sub-menu a::after {
     content: none;
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header .main-navigation .menu-item-has-children > .sub-menu,
+  .site-header .main-navigation .page_item_has_children > .sub-menu {
+    display: none;
+  }
+
+  .site-header .main-navigation .menu-item-has-children.sous-menu-ouvert > .sub-menu,
+  .site-header .main-navigation .page_item_has_children.sous-menu-ouvert > .sub-menu {
+    display: flex;
   }
 }
 
