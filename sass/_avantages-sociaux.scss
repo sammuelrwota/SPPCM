@@ -1,26 +1,49 @@
-
 @use './settings/colors' as *;
 @use './settings/variables' as *;
 
 .avantages_sociaux {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 40px 0;
+    box-sizing: border-box;
     &_bloc1 {
-    //    border: 1px solid black;
-        
-        // display: flex;
-        // flex-direction: row;
-    //     // align-items: center;
-    //  padding: 0px 50px 0 0;
-    //  margin-left: 50px;
-        // justify-content: center;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 60px;
     }
-
+    &_section {
+       width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
     h1 {
         font-size: 1.8rem;
-        text-align: center;
+        text-align: left;
         font-weight: bold;
         color: black;
+        margin: 0;
     }
     h3 {
-         border-bottom: 2px solid rgba(41, 41, 41, 0.175);
+        font-size: 1.3rem;
+        font-weight: bold;
+        padding: 15px 0;
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &::after {
+            content: "";
+            background-image: url('../images/icone-avantages.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
     }
 }
