@@ -1317,10 +1317,9 @@ section {
   margin-bottom: 60px;
 }
 .avantages_sociaux_section {
-  width: 50%;
+  width: 55%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
 }
 .avantages_sociaux h1 {
   font-size: 1.8rem;
@@ -1348,6 +1347,21 @@ section {
   height: 25px;
   cursor: pointer;
   margin-right: 20px;
+}
+.avantages_sociaux p {
+  font-weight: 500;
+  font-family: var(--titre-police) !important;
+  line-height: 1.5;
+  font-size: 1.15rem;
+}
+.avantages_sociaux a:nth-child(3) {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease;
 }
 
 /*# sourceMappingURL=main.css.map */

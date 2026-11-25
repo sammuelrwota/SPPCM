@@ -64,12 +64,6 @@
 
                     img {
                         transform: translateX(-10px) translateY(4px); 
-                        // &:nth-of-type(2) {
-                        //     transform: translateX(570px) translateY(4px) !important;
-                        // }
-                        // &:nth-of-type(3) {
-                        //     transform: translateX(570px) translateY(4px) !important;
-                        // }
                     }
                    &::after {
                         content: "";
