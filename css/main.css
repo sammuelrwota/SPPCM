@@ -1316,6 +1316,18 @@ section {
 .convention_collective .convention-collective_section ul li a img {
   transform: translateX(-10px) translateY(4px);
 }
+.convention_collective .convention-collective_section ul span a::after,
+.convention_collective .convention-collective_section ul li a::after {
+  content: "";
+  display: inline-block;
+  background-image: url("../images/newtab.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  transform: translateX(570px) translateY(4px) !important;
+}
 .convention_collective .convention-collective_section ul span a:hover,
 .convention_collective .convention-collective_section ul li a:hover {
   background-color: #eeeeee;
@@ -1349,14 +1361,51 @@ section {
  * Tout fichier .scss créé mais jamais importé ici (directement ou via un autre partiel
  * déjà importé) ne sera PAS compilé et n'aura aucun effet sur le site.
  */
+.avantages_sociaux {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px 0;
+  box-sizing: border-box;
+}
+.avantages_sociaux_bloc1 {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 60px;
+}
+.avantages_sociaux_section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .avantages_sociaux h1 {
   font-size: 1.8rem;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
   color: black;
+  margin: 0;
 }
 .avantages_sociaux h3 {
-  border-bottom: 2px solid rgba(41, 41, 41, 0.175);
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 15px 0;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.avantages_sociaux h3::after {
+  content: "";
+  background-image: url("../images/icone-avantages.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin-right: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */
