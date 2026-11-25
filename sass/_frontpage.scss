@@ -34,6 +34,13 @@ h3{
   line-height: var(--titre-interligne);
 }
 
+h4{
+  font-family: var(--titre-police);
+  font-size: var(--titre4);
+  font-weight: var(--titre-gras);
+  line-height: var(--titre-interligne);
+}
+
 p{
   font-family: var(--texte-police);
   font-size: var(--texte2);
@@ -99,12 +106,16 @@ a{
     background-color: #ff0000;
 }
 
-.actualite-single{
+.actualite-single, .comite-single{
   background: var(--degrade-couleur);
   color: var(--couleur-texte-pale);
-  padding: 10px 20px;
+  padding: 2px 40px 20px 40px;
   border-radius: var(--corner-radius) 0 var(--corner-radius) 0;
   margin: 20px 0px;
+}
+
+.actualite-single{
+  padding: 10px 20px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: left;
@@ -128,12 +139,12 @@ a{
   }
 }
 
-section{
-  margin: 40px 0;
+.comite-single{
+  width: 50vw;
 }
 
-.comite-description::before{
-  content: "➤";
+section{
+  margin: 40px 0;
 }
 
 /* TABLETTE */
