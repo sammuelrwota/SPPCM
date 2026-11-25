@@ -72,23 +72,18 @@
                         // }
                     }
                    &::after {
-    content: "";
-    display: inline-block;
-    background-image: url('../images/icone-avantages.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 25px;
-    height: 25px;
-    // margin-left: 15px;
-    // vertical-align: middle;
-     &:nth-of-type(2) {
-                            transform: translateX(570px) translateY(4px) !important;
-                        }
-                        &:nth-of-type(3) {
-                            transform: translateX(570px) translateY(4px) !important;
-                        }
-}
+                        content: "";
+                        display: inline-block;
+                        background-image: url('../images/newtab.png');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        width: 20px;
+                        height: 20px;
+                        transform: translateX(570px) translateY(4px) !important;
+                        // vertical-align: middle;
+
+                    }
                 
                     &:hover {
                         background-color: #eeeeee;
