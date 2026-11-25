@@ -429,6 +429,7 @@ body.recherche-ouverte {
         padding: 0 clamp(0.8rem, 1.2vw, 2.3rem);
         border-top: 3px solid #b00000;
         border-bottom: 3px solid #b00000;
+        border-left: none;
         text-decoration: none;
         font-size: var(--titre4);
         text-align: center;
