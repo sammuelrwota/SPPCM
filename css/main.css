@@ -39,7 +39,7 @@
 :root {
   --corner-radius: 1.25rem;
   --corner-radius-interne: 0.875rem;
-  --marge-mobile: 0.938rem;
+  --marge-mobile: 1rem;
   --marge-tablette: 4.063rem;
   --marge-desktop: clamp(150px, 10vw, 300px);
   --largeur-icones: 1.5rem;
@@ -59,8 +59,8 @@
   --titre-gras: 700;
   --titre1: clamp(24px, 2.2vw, 40px);
   --titre2: clamp(24px, 2vw, 30px);
-  --titre3: clamp(20px, 1.7vw, 24px);
-  --titre4: clamp(16px, 1.3vw, 20px);
+  --titre3: clamp(20px, 1.7vw, 26px);
+  --titre4: clamp(18px, 1.5vw, 24px);
   --titre5: clamp(12px, 1vw, 16px);
   --titre-interligne: clamp(36px, 3vh, 54px);
 }
@@ -1021,6 +1021,13 @@ h3 {
   line-height: var(--titre-interligne);
 }
 
+h4 {
+  font-family: var(--titre-police);
+  font-size: var(--titre4);
+  font-weight: var(--titre-gras);
+  line-height: var(--titre-interligne);
+}
+
 p {
   font-family: var(--texte-police);
   font-size: var(--texte2);
@@ -1081,12 +1088,16 @@ a {
   background-color: #ff0000;
 }
 
-.actualite-single {
+.actualite-single, .comite-single {
   background: var(--degrade-couleur);
   color: var(--couleur-texte-pale);
-  padding: 10px 20px;
+  padding: 2px 40px 20px 40px;
   border-radius: var(--corner-radius) 0 var(--corner-radius) 0;
   margin: 20px 0px;
+}
+
+.actualite-single {
+  padding: 10px 20px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: left;
@@ -1105,6 +1116,10 @@ a {
 }
 .actualite-single .infos-article p {
   margin: 0;
+}
+
+.comite-single {
+  width: 50vw;
 }
 
 section {
@@ -1144,6 +1159,7 @@ section {
   }
   .banniere .infos-syndicat h1 {
     color: var(--couleur-texte-pale);
+    text-align: left;
   }
   .banniere .infos-syndicat p {
     font-size: var(--titre3);
@@ -1294,6 +1310,4 @@ section {
 }
 .avantages_sociaux h3 {
   border-bottom: 2px solid rgba(41, 41, 41, 0.175);
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

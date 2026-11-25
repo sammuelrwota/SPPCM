@@ -110,9 +110,9 @@ $images   = get_stylesheet_directory_uri() . '/images/';
                 $point_4_comite        = get_post_meta(get_the_ID(), 'point_4_comite', true);
                 $point_5_comite        = get_post_meta(get_the_ID(), 'point_5_comite', true);
             ?>
-                <article class="comite-single">
+                <article class="comite-single ombre">
                     <?php if ($nom_comite !== '') : ?>
-                        <h1><?php echo esc_html($nom_comite); ?></h1>
+                        <h4><?php echo esc_html($nom_comite); ?></h4>
                     <?php endif; ?>
 
                     <?php if ($responsable_comite !== '') : ?>
@@ -121,36 +121,6 @@ $images   = get_stylesheet_directory_uri() . '/images/';
 
                     <?php if ($email_comite !== '') : ?>
                         <p><?php echo esc_html($email_comite); ?></p>
-                    <?php endif; ?>
-
-                    <?php if ($point_1_comite !== '') : ?>
-                        <p class="comite-description">
-                            <?php echo esc_html($point_1_comite); ?>
-                        </p>
-                    <?php endif; ?>
-
-                    <?php if ($point_2_comite !== '') : ?>
-                        <p class="comite-description">
-                            <?php echo esc_html($point_2_comite); ?>
-                        </p>
-                    <?php endif; ?>
-
-                    <?php if ($point_3_comite !== '') : ?>
-                        <p class="comite-description">
-                            <?php echo esc_html($point_3_comite); ?>
-                        </p>
-                    <?php endif; ?>
-
-                    <?php if ($point_4_comite !== '') : ?>
-                        <p class="comite-description">
-                            <?php echo esc_html($point_4_comite); ?>
-                        </p>
-                    <?php endif; ?>
-
-                    <?php if ($point_5_comite !== '') : ?>
-                        <p class="comite-description">
-                            <?php echo esc_html($point_5_comite); ?>
-                        </p>
                     <?php endif; ?>
                 </article>
             <?php }
